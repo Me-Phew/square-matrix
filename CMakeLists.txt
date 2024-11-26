@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(ProjectName)
+project(SquareMatrix)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SOURCES src/main.cpp)
 
-add_executable(ProjectName ${SOURCES})
+add_executable(SquareMatrix ${SOURCES})
 
 # Compile with all warnings, treat warnings as errors
 if (MSVC)
