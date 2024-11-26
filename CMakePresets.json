@@ -1,0 +1,72 @@
+{
+  "version": 8,
+  "configurePresets": [
+    {
+      "name": "GCC 13.1.0 x86_64-w64-mingw32 (mingw64)",
+      "displayName": "GCC 13.1.0 x86_64-w64-mingw32 (mingw64)",
+      "description": "Using compilers: C = C:\\msys64\\mingw64\\bin\\gcc.exe, CXX = C:\\msys64\\mingw64\\bin\\g++.exe",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
+        "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/g++.exe",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    {
+      "name": "ninja",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES"
+      }
+    },
+    {
+      "name": "linux-release",
+      "inherits": "ninja",
+      "description": "Release build for Linux",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/linux-release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++"
+      }
+    },
+    {
+      "name": "windows-release",
+      "inherits": "ninja",
+      "description": "Release build for Windows",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/windows-release",
+      "toolchainFile": "${sourceDir}/mingw-w64-x86_64.cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_SYSTEM_NAME": "Windows",
+        "CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc",
+        "CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "GCC 13.1.0 x86_64-w64-mingw32 (mingw64)",
+      "hidden": false,
+      "configurePreset": "GCC 13.1.0 x86_64-w64-mingw32 (mingw64)",
+      "jobs": 4
+    },
+    {
+      "name": "linux-release-build",
+      "configurePreset": "linux-release",
+      "description": "Build preset for Linux release",
+      "hidden": false
+    },
+    {
+      "name": "windows-release-build",
+      "configurePreset": "windows-release",
+      "description": "Build preset for Windows release",
+      "hidden": false
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "prepare": "lefthook install",
+    "build": "cmake --preset \"GCC 13.1.0 x86_64-w64-mingw32 (mingw64)\" && cmake --build --preset \"GCC 13.1.0 x86_64-w64-mingw32 (mingw64)\""
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@jothepro/doxygen-awesome-css": "github:jothepro/doxygen-awesome-css#v2.3.4",
+    "lefthook": "^1.7.18"
+  }
+}

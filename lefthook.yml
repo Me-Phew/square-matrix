@@ -1,0 +1,9 @@
+pre-commit:
+  commands:
+    build:
+      run: npm run build
+
+commit-msg:
+  commands:
+    validate_commit_message:
+      run: npx commitlint --edit
