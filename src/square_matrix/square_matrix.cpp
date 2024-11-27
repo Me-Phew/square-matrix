@@ -8,8 +8,4 @@
  *
  */
 
-#include <iostream>
-
-int main() {
-  std::cout << "Hello world!";
-}
+#include "square_matrix.hpp"
