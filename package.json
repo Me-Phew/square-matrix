@@ -1,8 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "prepare": "lefthook install",
-    "build": "cmake --preset \"GCC 13.1.0 x86_64-w64-mingw32 (mingw64)\" && cmake --build --preset \"GCC 13.1.0 x86_64-w64-mingw32 (mingw64)\""
+    "prepare": "lefthook install"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
