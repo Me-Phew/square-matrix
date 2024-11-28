@@ -1,4 +1,5 @@
 var annotated_dup =
 [
-    [ "List", "classList.html", null ]
+    [ "RandomNumberGenerator", "classRandomNumberGenerator.html", null ],
+    [ "SquareMatrix", "classSquareMatrix.html", null ]
 ];

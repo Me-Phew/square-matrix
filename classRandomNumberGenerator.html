@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=11" />
   <meta name="generator" content="Doxygen 1.12.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Name: List Class Reference</title>
+  <title>Square Matrix: RandomNumberGenerator Class Reference</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link href="tabs.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="jquery.js"></script>
@@ -52,8 +52,8 @@
             <tr id="projectrow">
               <td id="projectlogo"><img alt="Logo" src="favicon.svg"  /></td>
               <td id="projectalign">
-                <div id="projectname">Project Name<span
-                    id="projectnumber">&#160;v0.0.1</span>
+                <div id="projectname">Square Matrix<span
+                    id="projectnumber">&#160;v0.1.0</span>
                 </div>
               </td>
             </tr>
@@ -96,7 +96,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('classList.html',''); initResizable(true); });
+$(function(){initNavTree('classRandomNumberGenerator.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -122,25 +122,83 @@ $(function(){initNavTree('classList.html',''); initResizable(true); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">List Class Reference</div></div>
+  <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="classRandomNumberGenerator-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">RandomNumberGenerator Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Doxygen comment example.  
+<p>Klasa do generowania liczb losowych w określonym zakresie.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="main_8h_source.html">main.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="random__number__generator_8hpp_source.html">random_number_generator.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a6078dcc0412152b8b83dbdf3d09ba727" id="r_a6078dcc0412152b8b83dbdf3d09ba727"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6078dcc0412152b8b83dbdf3d09ba727">getRandomNumber</a> (int min, int max)</td></tr>
+<tr class="memdesc:a6078dcc0412152b8b83dbdf3d09ba727"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generuje liczbę losową z podanego zakresu.  <br /></td></tr>
+<tr class="separator:a6078dcc0412152b8b83dbdf3d09ba727"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Doxygen comment example. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/<a class="el" href="main_8h_source.html">main.h</a></li>
+<div class="textblock"><p>Klasa do generowania liczb losowych w określonym zakresie. </p>
+<dl class="section author"><dt>Author</dt><dd>Marcin Dudek </dd>
+<dd>
+Mateusz Basiaga (<a href="#" onclick="location.href='mai'+'lto:'+'bas'+'ma'+'teu'+'sz'+'@wp'+'.p'+'l'; return false;">basma<span class="obfuscator">.nosp@m.</span>teus<span class="obfuscator">.nosp@m.</span>z@wp.<span class="obfuscator">.nosp@m.</span>pl</a>) </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2024-11-27</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
+<p>Klasa zawiera metody umożliwiające generowanie liczb pseudolosowych w zadanym przedziale. Korzysta z mechanizmu inicjalizacji generatora za pomocą ziarna. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6078dcc0412152b8b83dbdf3d09ba727" name="a6078dcc0412152b8b83dbdf3d09ba727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6078dcc0412152b8b83dbdf3d09ba727">&#9670;&#160;</a></span>getRandomNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RandomNumberGenerator::getRandomNumber </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>max</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generuje liczbę losową z podanego zakresu. </p>
+<p>Funkcja zwraca liczbę całkowitą losową z przedziału [min, max]. Jeśli generator nie został wcześniej zainicjalizowany, funkcja wywołuje <code>seed()</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>Dolna granica zakresu (włącznie). </td></tr>
+    <tr><td class="paramname">max</td><td>Górna granica zakresu (włącznie). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Liczba całkowita losowa z przedziału [min, max]. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/utils/random_number_generator/<a class="el" href="random__number__generator_8hpp_source.html">random_number_generator.hpp</a></li>
+<li>src/utils/random_number_generator/<b>random_number_generator.cpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="classList.html">List</a></li>
+    <li class="navelem"><a class="el" href="classRandomNumberGenerator.html">RandomNumberGenerator</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
