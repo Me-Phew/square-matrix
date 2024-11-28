@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "utils.hpp"
+#include "common.hpp"
 
 void printSeparator() {
   std::cout << "\n----------------------------------------\n";
