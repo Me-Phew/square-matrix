@@ -5,9 +5,9 @@ project(SquareMatrix)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(src/square_matrix)
+include_directories(src/square_matrix src/utils)
 
-set(SOURCES src/square_matrix/square_matrix.cpp src/main.cpp)
+set(SOURCES src/square_matrix/square_matrix.cpp src/utils/utils.cpp src/main.cpp)
 
 add_executable(SquareMatrix ${SOURCES})
 
