@@ -18,10 +18,12 @@ private:
     int size;
     int** data;
     bool isAllocated;
+    static int displayWidth;
 
     void allocateMemory();
     void deallocateMemory();
     void copyData(const SquareMatrix& other);
+    
 
 public:
     // Constructors and destructor
@@ -30,6 +32,10 @@ public:
     SquareMatrix(int n, int* t);  // Data constructor
     SquareMatrix(const SquareMatrix& m);  // Copy constructor
     ~SquareMatrix();  // Destructor
+
+    void displayFull() const;
+    void displayTruncated() const;
+    static void setDisplayPrecision(int width);
 
     // Memory management
     SquareMatrix& allocate(int n);
