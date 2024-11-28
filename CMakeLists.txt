@@ -1,15 +1,21 @@
 cmake_minimum_required(VERSION 3.14)
-
-project(ProjectName)
+project(SquareMatrix)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(SOURCES src/main.cpp)
+include_directories(src/square_matrix src/utils)
 
-add_executable(ProjectName ${SOURCES})
+set(SOURCES 
+    src/square_matrix/square_matrix.cpp
+    src/utils/common/common.cpp
+    src/utils/random_number_generator/random_number_generator.cpp
+    src/main.cpp
+)
 
-# Compile with all warnings, treat warnings as errors
+add_executable(SquareMatrix ${SOURCES})
+
+# Compile with all warnings
 if (MSVC)
     add_compile_options(/W4 /WX)
 else()
