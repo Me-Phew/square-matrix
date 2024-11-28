@@ -13,7 +13,7 @@
 #include <random>
 
 #include "square_matrix.hpp"
-#include "utils.hpp"
+#include "utils/common/common.hpp"
 
 int main() {
   const int SIZE = 50;
