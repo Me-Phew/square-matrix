@@ -321,3 +321,79 @@ bool SquareMatrix::operator<(const SquareMatrix& other) const {
     }
     return true;
 }
+
+int SquareMatrix::displayWidth = 4;
+
+void SquareMatrix::setDisplayPrecision(int width) {
+    displayWidth = width;
+}
+
+void SquareMatrix::displayFull() const {
+    if (!isAllocated) {
+        std::cout << "Unallocated matrix\n";
+        return;
+    }
+
+    // Display column headers
+    std::cout << "     ";
+    for (int j = 0; j < size; ++j) {
+        std::cout << std::setw(4) << j;
+    }
+    std::cout << "\n";
+
+    // Display separator
+    std::cout << "    ";
+    for (int j = 0; j < size * 4 + 1; ++j) {
+        std::cout << "-";
+    }
+    std::cout << "\n";
+
+    // Display matrix with row numbers
+    for (int i = 0; i < size; ++i) {
+        std::cout << std::setw(3) << i << " |";
+        for (int j = 0; j < size; ++j) {
+            std::cout << std::setw(4) << data[i][j];
+        }
+        std::cout << "\n";
+    }
+}
+
+void SquareMatrix::displayTruncated() const {
+    if (!isAllocated) {
+        std::cout << "Unallocated matrix\n";
+        return;
+    }
+
+    const int show_rows = 8; // Number of rows to show at start and end
+    
+    // Display first rows
+    for (int i = 0; i < std::min(show_rows, size); ++i) {
+        std::cout << std::setw(3) << i << " |";
+        for (int j = 0; j < std::min(show_rows, size); ++j) {
+            std::cout << std::setw(4) << data[i][j];
+        }
+        if (size > show_rows) {
+            std::cout << " ... " << std::setw(4) << data[i][size-1];
+        }
+        std::cout << "\n";
+    }
+
+    // Display middle separator if needed
+    if (size > show_rows * 2) {
+        std::cout << "     ...\n";
+    }
+
+    // Display last rows
+    if (size > show_rows) {
+        for (int i = size - show_rows; i < size; ++i) {
+            std::cout << std::setw(3) << i << " |";
+            for (int j = 0; j < std::min(show_rows, size); ++j) {
+                std::cout << std::setw(4) << data[i][j];
+            }
+            if (size > show_rows) {
+                std::cout << " ... " << std::setw(4) << data[i][size-1];
+            }
+            std::cout << "\n";
+        }
+    }
+}

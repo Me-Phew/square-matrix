@@ -100,14 +100,21 @@ void testComparisonOperators() {
 
 void testLargeMatrix() {
     try {
-        std::cout << "\n=== Testing Large Matrix (50x50) ===\n";
+        std::cout << "\n=== Testing Large Matrix (30x30) ===\n";
         
-        SquareMatrix large(50);
+        SquareMatrix large(30);
         large.randomize();
-        std::cout << "Created and randomized 50x50 matrix successfully\n";
+        
+        std::cout << "Full matrix display:\n";
+        large.displayFull();
+        
+        std::cout << "\nTruncated matrix display:\n";
+        large.displayTruncated();
         
         large.transpose();
-        std::cout << "Transposed large matrix successfully\n";
+        std::cout << "\nTruncated transposed matrix:\n";
+        large.displayTruncated();
+        
     } catch (const std::exception& e) {
         std::cerr << "Error in large matrix operations: " << e.what() << "\n";
     }
