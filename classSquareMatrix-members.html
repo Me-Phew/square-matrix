@@ -53,7 +53,7 @@
               <td id="projectlogo"><img alt="Logo" src="favicon.svg"  /></td>
               <td id="projectalign">
                 <div id="projectname">Square Matrix<span
-                    id="projectnumber">&#160;v0.1.0</span>
+                    id="projectnumber">&#160;v0.1.1</span>
                 </div>
               </td>
             </tr>
@@ -129,6 +129,8 @@ $(function(){initNavTree('classSquareMatrix.html',''); initResizable(true); });
 <p>This is the complete list of members for <a class="el" href="classSquareMatrix.html">SquareMatrix</a>, including all inherited members.</p>
 <table class="directory">
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>allocate</b>(int n) (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>displayFull</b>() const (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>displayTruncated</b>() const (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>fillChessboardStyle</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>fillDiagonal</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>fillOverDiagonal</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
@@ -164,12 +166,13 @@ $(function(){initNavTree('classSquareMatrix.html',''); initResizable(true); });
   <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>operator&gt;</b>(const SquareMatrix &amp;other) const (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>randomize</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>randomize</b>(int count) (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SquareMatrix</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>SquareMatrix</b>(int n) (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SquareMatrix</b>(int n, int *t) (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>SquareMatrix</b>(const SquareMatrix &amp;m) (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>transpose</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>~SquareMatrix</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setDisplayPrecision</b>(int width) (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>SquareMatrix</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SquareMatrix</b>(int n) (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>SquareMatrix</b>(int n, int *t) (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>SquareMatrix</b>(const SquareMatrix &amp;m) (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>transpose</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~SquareMatrix</b>() (defined in <a class="el" href="classSquareMatrix.html">SquareMatrix</a>)</td><td class="entry"><a class="el" href="classSquareMatrix.html">SquareMatrix</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
