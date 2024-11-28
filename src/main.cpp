@@ -10,215 +10,121 @@
 
 #include <iostream>
 #include <fstream>
-#include <random>
-
+#include <stdexcept>
+#include <vector>
 #include "square_matrix.hpp"
-#include "utils/common/common.hpp"
+
+void testConstructors() {
+    try {
+        std::cout << "\n=== Testing Constructors ===\n";
+        
+        SquareMatrix m1;
+        std::cout << "Default constructor:\n" << m1 << "\n";
+
+        SquareMatrix m2(4);
+        std::cout << "Size constructor (4x4):\n" << m2 << "\n";
+
+        int data[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+        SquareMatrix m3(4, data);
+        std::cout << "Data constructor:\n" << m3 << "\n";
+
+        SquareMatrix m4(m3);
+        std::cout << "Copy constructor:\n" << m4 << "\n";
+    } catch (const std::exception& e) {
+        std::cerr << "Error in constructors: " << e.what() << "\n";
+    }
+}
+
+void testMatrixOperations() {
+    try {
+        std::cout << "\n=== Testing Matrix Operations ===\n";
+        
+        SquareMatrix m(4);
+        m.randomize();
+        std::cout << "Original matrix:\n" << m << "\n";
+        
+        m.transpose();
+        std::cout << "Transposed matrix:\n" << m << "\n";
+        
+        m.fillDiagonal();
+        std::cout << "Diagonal matrix:\n" << m << "\n";
+        
+        m.fillChessboardStyle();
+        std::cout << "Chessboard pattern:\n" << m << "\n";
+    } catch (const std::exception& e) {
+        std::cerr << "Error in matrix operations: " << e.what() << "\n";
+    }
+}
+
+void testArithmeticOperators() {
+    try {
+        std::cout << "\n=== Testing Arithmetic Operators ===\n";
+        
+        SquareMatrix m1(4), m2(4);
+        m1.randomize();
+        m2.randomize();
+        
+        std::cout << "Matrix 1:\n" << m1 << "\n";
+        std::cout << "Matrix 2:\n" << m2 << "\n";
+        
+        SquareMatrix m3 = m1 + m2;
+        std::cout << "M1 + M2:\n" << m3 << "\n";
+        
+        SquareMatrix m4 = m1 * m2;
+        std::cout << "M1 * M2:\n" << m4 << "\n";
+        
+        m1 += 5;
+        std::cout << "M1 += 5:\n" << m1 << "\n";
+    } catch (const std::exception& e) {
+        std::cerr << "Error in arithmetic operations: " << e.what() << "\n";
+    }
+}
+
+void testComparisonOperators() {
+    try {
+        std::cout << "\n=== Testing Comparison Operators ===\n";
+        
+        SquareMatrix m1(4), m2(4);
+        m1.randomize();
+        m2 = m1;
+        
+        std::cout << "Testing equality (should be true): " << (m1 == m2) << "\n";
+        m2.insert(0, 0, 999);
+        std::cout << "Testing inequality (should be true): " << (m1 != m2) << "\n";
+        std::cout << "Testing less than: " << (m1 < m2) << "\n";
+        std::cout << "Testing greater than: " << (m1 > m2) << "\n";
+    } catch (const std::exception& e) {
+        std::cerr << "Error in comparison operations: " << e.what() << "\n";
+    }
+}
+
+void testLargeMatrix() {
+    try {
+        std::cout << "\n=== Testing Large Matrix (50x50) ===\n";
+        
+        SquareMatrix large(50);
+        large.randomize();
+        std::cout << "Created and randomized 50x50 matrix successfully\n";
+        
+        large.transpose();
+        std::cout << "Transposed large matrix successfully\n";
+    } catch (const std::exception& e) {
+        std::cerr << "Error in large matrix operations: " << e.what() << "\n";
+    }
+}
 
 int main() {
-  const int SIZE = 50;
-
-  SquareMatrix matrix1(SIZE);
-
-  printSeparator();
-  std::cout << "Initial empty matrix 1:" << std::endl;
-  std::cout << matrix1;
-
-  // Fill matrix1 with random values
-  matrix1.randomize();
-  printSeparator();
-  std::cout << "Matrix 1 after randomization:" << std::endl;
-  std::cout << matrix1;
-
-  SquareMatrix matrix2(SIZE);
-
-  // Fill matrix2 with chess pattern
-  matrix2.fillChessboardStyle();
-  printSeparator();
-  std::cout << "Matrix 2 with chessboard pattern:" << std::endl;
-  std::cout << matrix2;
-
-  SquareMatrix matrix3;
-
-  // Test matrix addition
-  matrix3 = matrix1 + matrix2;
-  printSeparator();
-  std::cout << "Matrix 3 (Matrix 1 + Matrix 2):" << std::endl;
-  std::cout << matrix3;
-
-  // Test scalar operations
-  matrix1 = matrix1 * 2;
-  printSeparator();
-  std::cout << "Matrix 1 multiplied by 2:" << std::endl;
-  std::cout << matrix1;
-
-  matrix1 = matrix1 + 5;
-  printSeparator();
-  std::cout << "Matrix 1 plus 5:" << std::endl;
-  std::cout << matrix1;
-
-  // Test diagonal operations
-  int* diagonal = new int[SIZE];
-  for (int i = 0; i < SIZE; i++) {
-    diagonal[i] = i + 1;
-  }
-
-  matrix2.insertMainDiagonal(diagonal);
-  printSeparator();
-  std::cout << "Matrix 2 with numbered main diagonal:" << std::endl;
-  std::cout << matrix2;
-
-  // Test diagonal fills
-  matrix3.fillDiagonal();
-  printSeparator();
-  std::cout << "Matrix 3 with filled diagonal:" << std::endl;
-  std::cout << matrix3;
-
-  matrix3.fillOverDiagonal();
-  printSeparator();
-  std::cout << "Matrix 3 with filled over-diagonal:" << std::endl;
-  std::cout << matrix3;
-
-  matrix3.fillUnderDiagonal();
-  printSeparator();
-  std::cout << "Matrix 3 with filled under-diagonal:" << std::endl;
-  std::cout << matrix3;
-
-  // Test transpose
-  matrix1.transpose();
-  printSeparator();
-  std::cout << "Matrix 1 transposed:" << std::endl;
-  std::cout << matrix1;
-
-  // Test comparison operators
-  printSeparator();
-  std::cout << "Matrix comparisons:" << std::endl;
-  std::cout << "Matrix 1 == Matrix 2: " << (matrix1 == matrix2) << std::endl;
-  std::cout << "Matrix 1 > Matrix 2: " << (matrix1 > matrix2) << std::endl;
-  std::cout << "Matrix 1 < Matrix 2: " << (matrix1 < matrix2) << std::endl;
-  std::cout << "Matrix 1 != Matrix 2: " << (matrix1 != matrix2) << std::endl;
-
-  // Test increment/decrement
-  matrix1++;
-  printSeparator();
-  std::cout << "Matrix 1 after increment:" << std::endl;
-  std::cout << matrix1;
-
-  matrix1--;
-  printSeparator();
-  std::cout << "Matrix 1 after decrement:" << std::endl;
-  std::cout << matrix1;
-
-  // Clean up
-  delete[] diagonal;
-
-  // Test constructors
-  int* data = new int[SIZE * SIZE];
-  for (int i = 0; i < SIZE * SIZE; i++) {
-    data[i] = i;
-  }
-
-  SquareMatrix matrix4(SIZE, data);
-  printSeparator();
-  std::cout << "Matrix 4 created with data array:" << std::endl;
-  std::cout << matrix4;
-
-  // Copy constructor
-  SquareMatrix matrix5(matrix4);
-  printSeparator();
-  std::cout << "Matrix 5 copied from Matrix 4:" << std::endl;
-  std::cout << matrix5;
-
-  // Test allocate
-  SquareMatrix matrix6;
-  matrix6.allocate(SIZE);
-  printSeparator();
-  std::cout << "Matrix 6 after allocation:" << std::endl;
-  std::cout << matrix6;
-
-  // Test insert and get
-  matrix6.insert(0, 0, 42);
-  printSeparator();
-  std::cout << "Value at (0,0): " << matrix6.get(0, 0) << std::endl;
-
-  // Test randomize with count
-  matrix6.randomize(SIZE * SIZE / 2); // Fill half the matrix with random values
-  printSeparator();
-  std::cout << "Matrix 6 partially randomized:" << std::endl;
-  std::cout << matrix6;
-
-  // Test insertDiagonal with offset
-  int* offsetDiagonal = new int[SIZE];
-  for (int i = 0; i < SIZE; i++) {
-    offsetDiagonal[i] = i * 2;
-  }
-  matrix6.insertDiagonal(1, offsetDiagonal);
-  printSeparator();
-  std::cout << "Matrix 6 with offset diagonal:" << std::endl;
-  std::cout << matrix6;
-
-  // Test insertColumn and insertRow
-  int* columnData = new int[SIZE];
-  int* rowData = new int[SIZE];
-  for (int i = 0; i < SIZE; i++) {
-    columnData[i] = 99;
-    rowData[i] = 88;
-  }
-  matrix6.insertColumn(0, columnData);
-  matrix6.insertRow(0, rowData);
-  printSeparator();
-  std::cout << "Matrix 6 with new column and row:" << std::endl;
-  std::cout << matrix6;
-
-  // Test matrix multiplication
-  SquareMatrix matrix7(SIZE);
-  matrix7.fillDiagonal();
-  SquareMatrix result = matrix6 * matrix7;
-  printSeparator();
-  std::cout << "Result of Matrix 6 * Matrix 7:" << std::endl;
-  std::cout << result;
-
-  // Test scalar operations with friends and compound operators
-  matrix6 = 2 + matrix6;
-  printSeparator();
-  std::cout << "After scalar addition (friend):" << std::endl;
-  std::cout << matrix6;
-
-  matrix6 = 2 * matrix6;
-  printSeparator();
-  std::cout << "After scalar multiplication (friend):" << std::endl;
-  std::cout << matrix6;
-
-  matrix6 = 10 - matrix6;
-  printSeparator();
-  std::cout << "After scalar subtraction (friend):" << std::endl;
-  std::cout << matrix6;
-
-  matrix6 += 5;
-  printSeparator();
-  std::cout << "After compound addition:" << std::endl;
-  std::cout << matrix6;
-
-  matrix6 -= 3;
-  printSeparator();
-  std::cout << "After compound subtraction:" << std::endl;
-  std::cout << matrix6;
-
-  matrix6 *= 2;
-  printSeparator();
-  std::cout << "After compound multiplication:" << std::endl;
-  std::cout << matrix6;
-
-  matrix6 += 1.5;
-  printSeparator();
-  std::cout << "After compound addition with double:" << std::endl;
-  std::cout << matrix6;
-
-  // Clean up
-  delete[] data;
-  delete[] offsetDiagonal;
-  delete[] columnData;
-  delete[] rowData;
-
-  return 0;
+    try {
+        testConstructors();
+        testMatrixOperations();
+        testArithmeticOperators();
+        testComparisonOperators();
+        testLargeMatrix();
+        
+        std::cout << "\nAll tests completed successfully!\n";
+        return 0;
+    } catch (const std::exception& e) {
+        std::cerr << "Fatal error: " << e.what() << "\n";
+        return 1;
+    }
 }

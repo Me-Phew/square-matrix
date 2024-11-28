@@ -14,83 +14,72 @@
 #include <iostream>
 
 class SquareMatrix {
+private:
+    int size;
+    int** data;
+    bool isAllocated;
+
+    void allocateMemory();
+    void deallocateMemory();
+    void copyData(const SquareMatrix& other);
+
 public:
-  SquareMatrix();
+    // Constructors and destructor
+    SquareMatrix();  // Default constructor
+    SquareMatrix(int n);  // Size constructor
+    SquareMatrix(int n, int* t);  // Data constructor
+    SquareMatrix(const SquareMatrix& m);  // Copy constructor
+    ~SquareMatrix();  // Destructor
 
-  SquareMatrix(int size);
+    // Memory management
+    SquareMatrix& allocate(int n);
+    
+    // Basic operations
+    SquareMatrix& insert(int x, int y, int value);
+    int get(int x, int y) const;
+    SquareMatrix& transpose();
+    
+    // Filling methods
+    SquareMatrix& randomize();
+    SquareMatrix& randomize(int count);
+    SquareMatrix& insertMainDiagonal(int* t);
+    SquareMatrix& insertDiagonal(int k, int* t);
+    SquareMatrix& insertColumn(int x, int* t);
+    SquareMatrix& insertRow(int y, int* t);
+    SquareMatrix& fillDiagonal();
+    SquareMatrix& fillUnderDiagonal();
+    SquareMatrix& fillOverDiagonal();
+    SquareMatrix& fillChessboardStyle();
 
-  SquareMatrix(int size, int* data);
+    // Operators
+    SquareMatrix& operator=(const SquareMatrix& other);
+    SquareMatrix operator+(const SquareMatrix& other) const;
+    SquareMatrix operator*(const SquareMatrix& other) const;
+    SquareMatrix operator+(int scalar) const;
+    SquareMatrix operator-(int scalar) const;
+    SquareMatrix operator*(int scalar) const;
+    SquareMatrix& operator+=(int scalar);
+    SquareMatrix& operator-=(int scalar);
+    SquareMatrix& operator*=(int scalar);
+    SquareMatrix& operator++();
+    SquareMatrix operator++(int);
+    SquareMatrix& operator--();
+    SquareMatrix operator--(int);
 
-  SquareMatrix(SquareMatrix& other);
+    friend std::ostream& operator<<(std::ostream& os, const SquareMatrix& matrix);
+    friend SquareMatrix operator+(int scalar, const SquareMatrix& matrix);
+    friend SquareMatrix operator-(int scalar, const SquareMatrix& matrix);
+    friend SquareMatrix operator*(int scalar, const SquareMatrix& matrix);
 
-  ~SquareMatrix();
+    // Comparison operators
+    bool operator==(const SquareMatrix& other) const;
+    bool operator!=(const SquareMatrix& other) const;  // Add this line
+    bool operator>(const SquareMatrix& other) const;
+    bool operator<(const SquareMatrix& other) const;
 
-  SquareMatrix& allocate(int size);
-
-  SquareMatrix& insert(int row, int col, int value);
-
-  int get(int row, int col);
-
-  SquareMatrix& transpose();
-
-  SquareMatrix& randomize();
-
-  SquareMatrix& randomize(int count);
-
-  SquareMatrix& insertMainDiagonal(int* data);
-
-  SquareMatrix& insertDiagonal(int offset, int* data);
-
-  SquareMatrix& insertColumn(int col, int* data);
-
-  SquareMatrix& insertRow(int row, int* data);
-
-  SquareMatrix& fillDiagonal();
-
-  SquareMatrix& fillUnderDiagonal();
-
-  SquareMatrix& fillOverDiagonal();
-
-  SquareMatrix& fillChessboardStyle();
-
-  SquareMatrix& operator+(SquareMatrix& other);
-
-  SquareMatrix& operator*(SquareMatrix& other);
-
-  SquareMatrix& operator+(int scalar);
-
-  SquareMatrix& operator*(int scalar);
-
-  SquareMatrix& operator-(int scalar);
-
-  friend SquareMatrix operator+(int scalar, SquareMatrix& matrix);
-
-  friend SquareMatrix operator*(int scalar, SquareMatrix& matrix);
-
-  friend SquareMatrix operator-(int scalar, SquareMatrix& matrix);
-
-  SquareMatrix& operator++(int);
-
-  SquareMatrix& operator--(int);
-
-  SquareMatrix& operator+=(int scalar);
-
-  SquareMatrix& operator-=(int scalar);
-
-  SquareMatrix& operator*=(int scalar);
-
-  // todo: not sure about this
-  SquareMatrix& operator+=(double);
-
-  friend std::ostream& operator<<(std::ostream& os, SquareMatrix& matrix);
-
-  bool operator==(const SquareMatrix& other);
-
-  bool operator>(const SquareMatrix& other);
-
-  bool operator<(const SquareMatrix& other);
-
-  bool operator!=(const SquareMatrix& other);
+    // Utility methods
+    int getSize() const { return size; }
+    bool isInitialized() const { return isAllocated; }
 };
 
-#endif /* SQUARE_MATRIX_HPP */
+#endif // SQUARE_MATRIX_HPP
