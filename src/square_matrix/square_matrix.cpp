@@ -16,14 +16,21 @@
 #include <stdexcept>
 #include <random>
 
-// Helper methods
+int SquareMatrix::getSize() const {
+    return _size;
+}
+
+bool SquareMatrix::getIsAllocated() const {
+    return _isAllocated;
+}
+
 void SquareMatrix::allocateMemory() {
     try {
-        data = new int*[size];
-        for (int i = 0; i < size; ++i) {
-            data[i] = new int[size]();  // Initialize to 0
+        _data = new int* [_size];
+        for (int i = 0; i < _size; ++i) {
+            _data[i] = new int[_size]();  // Initialize to 0
         }
-        isAllocated = true;
+        _isAllocated = true;
     }
     catch (const std::bad_alloc& e) {
         throw std::runtime_error("Memory allocation failed: " + std::string(e.what()));
@@ -31,56 +38,60 @@ void SquareMatrix::allocateMemory() {
 }
 
 void SquareMatrix::deallocateMemory() {
-    if (isAllocated && data != nullptr) {
-        for (int i = 0; i < size; ++i) {
-            delete[] data[i];
+    if (_isAllocated && _data != nullptr) {
+        for (int i = 0; i < _size; ++i) {
+            delete[] _data[i];
         }
-        delete[] data;
-        data = nullptr;
-        isAllocated = false;
+
+        delete[] _data;
+        _data = nullptr;
+        _isAllocated = false;
     }
 }
 
 void SquareMatrix::copyData(const SquareMatrix& other) {
-    if (!other.isAllocated) {
+    if (!other._isAllocated) {
         throw std::runtime_error("Cannot copy from unallocated matrix");
     }
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            data[i][j] = other.data[i][j];
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] = other._data[i][j];
         }
     }
 }
 
-// Constructors and destructor
-SquareMatrix::SquareMatrix() : size(0), data(nullptr), isAllocated(false) {}
+SquareMatrix::SquareMatrix() : _size(0), _data(nullptr), _isAllocated(false) {}
 
-SquareMatrix::SquareMatrix(int n) : size(n), data(nullptr), isAllocated(false) {
-    if (n <= 0) {
+SquareMatrix::SquareMatrix(int size) : _size(size), _data(nullptr), _isAllocated(false) {
+    if (size <= 0) {
         throw std::invalid_argument("Matrix size must be positive");
     }
     allocateMemory();
 }
 
-SquareMatrix::SquareMatrix(int n, int* t) : size(n), data(nullptr), isAllocated(false) {
-    if (n <= 0) {
+SquareMatrix::SquareMatrix(int size, const int* rowData) : _size(size), _data(nullptr), _isAllocated(false) {
+    if (size <= 0) {
         throw std::invalid_argument("Matrix size must be positive");
     }
-    if (t == nullptr) {
+
+    if (rowData == nullptr) {
         throw std::invalid_argument("Input array cannot be null");
     }
+
     allocateMemory();
+
     for (int i = 0; i < size; ++i) {
         for (int j = 0; j < size; ++j) {
-            data[i][j] = t[i * size + j];
+            _data[i][j] = rowData[i * size + j];
         }
     }
 }
 
-SquareMatrix::SquareMatrix(const SquareMatrix& m) : size(m.size), data(nullptr), isAllocated(false) {
-    if (m.isAllocated) {
+SquareMatrix::SquareMatrix(SquareMatrix& other) : _size(other._size), _data(nullptr), _isAllocated(false) {
+    if (other._isAllocated) {
         allocateMemory();
-        copyData(m);
+        copyData(other);
     }
 }
 
@@ -88,113 +99,418 @@ SquareMatrix::~SquareMatrix() {
     deallocateMemory();
 }
 
-// Memory management
-SquareMatrix& SquareMatrix::allocate(int n) {
-    if (n <= 0) {
+SquareMatrix& SquareMatrix::allocate(int size) {
+    if (size <= 0) {
         throw std::invalid_argument("Matrix size must be positive");
     }
-    if (isAllocated) {
-        if (size == n) return *this;
+
+    if (_isAllocated) {
+        if (size == size) return *this;
         deallocateMemory();
     }
-    size = n;
+
+    size = size;
     allocateMemory();
+
     return *this;
 }
 
-// Basic operations
-SquareMatrix& SquareMatrix::insert(int x, int y, int value) {
-    if (!isAllocated) {
+SquareMatrix& SquareMatrix::insert(int row, int col, int value) {
+    if (!_isAllocated) {
         throw std::runtime_error("Matrix not allocated");
     }
-    if (x < 0 || x >= size || y < 0 || y >= size) {
+
+    if (row < 0 || row >= _size || col < 0 || col >= _size) {
         throw std::out_of_range("Matrix indices out of bounds");
     }
-    data[x][y] = value;
+
+    _data[row][col] = value;
+
     return *this;
 }
 
-int SquareMatrix::get(int x, int y) const {
-    if (!isAllocated) {
+int SquareMatrix::get(int row, int col) {
+    if (!_isAllocated) {
         throw std::runtime_error("Matrix not allocated");
     }
-    if (x < 0 || x >= size || y < 0 || y >= size) {
+
+    if (row < 0 || row >= _size || col < 0 || col >= _size) {
         throw std::out_of_range("Matrix indices out of bounds");
     }
-    return data[x][y];
+
+    return _data[row][col];
 }
 
-// Add any missing methods from your header file here...
+SquareMatrix& SquareMatrix::transpose() {
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
+    }
 
-// Random number generation
+    for (int i = 0; i < _size; ++i) {
+        for (int j = i + 1; j < _size; ++j) {
+            std::swap(_data[i][j], _data[j][i]);
+        }
+    }
+
+    return *this;
+}
+
 SquareMatrix& SquareMatrix::randomize() {
-    if (!isAllocated) {
+    if (!_isAllocated) {
         throw std::runtime_error("Matrix not allocated");
     }
+
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, 9);
-    
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            data[i][j] = dis(gen);
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] = dis(gen);
         }
     }
+
     return *this;
 }
 
 SquareMatrix& SquareMatrix::randomize(int count) {
-    if (!isAllocated) {
+    if (!_isAllocated) {
         throw std::runtime_error("Matrix not allocated");
     }
-    if (count > size * size) {
+
+    if (count > _size * _size) {
         throw std::invalid_argument("Count exceeds matrix size");
     }
-    
+
     std::random_device rd;
     std::mt19937 gen(rd());
     std::uniform_int_distribution<> dis(0, 9);
-    std::uniform_int_distribution<> pos(0, size - 1);
-    
+    std::uniform_int_distribution<> pos(0, _size - 1);
+
     // Reset matrix to zeros
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            data[i][j] = 0;
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] = 0;
         }
     }
-    
+
     // Fill random positions
     for (int k = 0; k < count; ++k) {
         int i = pos(gen);
         int j = pos(gen);
-        data[i][j] = dis(gen);
+        _data[i][j] = dis(gen);
     }
+
     return *this;
 }
 
-// Matrix operations
-SquareMatrix& SquareMatrix::transpose() {
-    if (!isAllocated) {
+SquareMatrix& SquareMatrix::insertMainDiagonal(const int* mainDiagonalData) {
+    if (!_isAllocated) {
         throw std::runtime_error("Matrix not allocated");
     }
-    for (int i = 0; i < size; ++i) {
-        for (int j = i + 1; j < size; ++j) {
-            std::swap(data[i][j], data[j][i]);
-        }
+
+    for (int i = 0; i < _size; ++i) {
+        _data[i][i] = mainDiagonalData[i];
     }
+
     return *this;
 }
 
-// Operators
-bool SquareMatrix::operator==(const SquareMatrix& other) const {
-    if (!isAllocated || !other.isAllocated || size != other.size) {
-        return false;
+SquareMatrix& SquareMatrix::insertDiagonal(int offset, const int* diagonalData) {
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
     }
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            if (data[i][j] != other.data[i][j]) return false;
+
+    if (offset >= _size || offset <= -_size) {
+        throw std::invalid_argument("Offset out of bounds");
+    }
+
+    int startRow = (offset >= 0) ? 0 : -offset;
+    int startCol = (offset >= 0) ? offset : 0;
+    int count = (offset >= 0) ? _size - offset : _size + offset;
+
+    for (int i = 0; i < count; ++i) {
+        _data[startRow + i][startCol + i] = diagonalData[i];
+    }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::insertColumn(int col, const int* columnData) {
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
+    }
+
+    if (col < 0 || col >= _size) {
+        throw std::out_of_range("Column index out of bounds");
+    }
+
+    for (int i = 0; i < _size; ++i) {
+        _data[i][col] = columnData[i];
+    }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::insertRow(int row, const int* rowData) {
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
+    }
+
+    if (row < 0 || row >= _size) {
+        throw std::out_of_range("Row index out of bounds");
+    }
+
+    for (int i = 0; i < _size; ++i) {
+        _data[row][i] = rowData[i];
+    }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::fillDiagonal() {
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
+    }
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] = (i == j) ? 1 : 0;
         }
     }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::fillUnderDiagonal() {
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
+    }
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] = (i > j) ? 1 : 0;
+        }
+    }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::fillOverDiagonal() {
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
+    }
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] = (i < j) ? 1 : 0;
+        }
+    }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::fillChessboardStyle() {
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
+    }
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] = (i + j) % 2;
+        }
+    }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::operator+(const SquareMatrix& other) const {
+    if (_size != other._size) {
+        throw std::invalid_argument("Matrix dimensions must match");
+    }
+
+    SquareMatrix* result = new SquareMatrix(_size);
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            result->_data[i][j] = _data[i][j] + other._data[i][j];
+        }
+    }
+
+    return *result;
+}
+
+SquareMatrix& SquareMatrix::operator*(const SquareMatrix& other) const {
+    if (_size != other._size) {
+        throw std::invalid_argument("Matrix dimensions must match");
+    }
+
+    SquareMatrix* result = new SquareMatrix(_size);
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            result->_data[i][j] = 0;
+            for (int k = 0; k < _size; ++k) {
+                result->_data[i][j] += _data[i][k] * other._data[k][j];
+            }
+        }
+    }
+
+    return *result;
+}
+
+SquareMatrix& SquareMatrix::operator+(int scalar) const {
+    SquareMatrix* result = new SquareMatrix(_size);
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            result->_data[i][j] = _data[i][j] + scalar;
+        }
+    }
+
+    return *result;
+}
+
+SquareMatrix& SquareMatrix::operator*(int scalar) const {
+    SquareMatrix* result = new SquareMatrix(_size);
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            result->_data[i][j] = _data[i][j] * scalar;
+        }
+    }
+
+    return *result;
+}
+
+SquareMatrix& SquareMatrix::operator-(int scalar) const {
+    SquareMatrix* result = new SquareMatrix(_size);
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            result->_data[i][j] = _data[i][j] - scalar;
+        }
+    }
+
+    return *result;
+}
+
+SquareMatrix operator+(int scalar, const SquareMatrix& matrix) {
+    return matrix + scalar;
+}
+
+SquareMatrix operator*(int scalar, const SquareMatrix& matrix) {
+    return matrix * scalar;
+}
+
+SquareMatrix& SquareMatrix::operator++(int) {
+    return *this += 1;
+}
+
+SquareMatrix& SquareMatrix::operator--(int) {
+    return *this -= 1;
+}
+
+SquareMatrix& SquareMatrix::operator+=(int scalar) {
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] += scalar;
+        }
+    }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::operator-=(int scalar) {
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] -= scalar;
+        }
+    }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::operator*=(int scalar) {
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] *= scalar;
+        }
+    }
+
+    return *this;
+}
+
+SquareMatrix& SquareMatrix::operator+=(double scalar) {
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            _data[i][j] += scalar;
+        }
+    }
+
+    return *this;
+}
+
+std::ostream& operator<<(std::ostream& os, const SquareMatrix& matrix) {
+    if (!matrix._isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
+    }
+
+    for (int i = 0; i < matrix._size; ++i) {
+        for (int j = 0; j < matrix._size; ++j) {
+            os << std::setw(4) << matrix._data[i][j];
+        }
+        os << "\n";
+    }
+
+    return os;
+}
+
+bool SquareMatrix::operator==(const SquareMatrix& other) const {
+    if (_size != other._size) {
+        return false;
+    }
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            if (_data[i][j] != other._data[i][j]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool SquareMatrix::operator>(const SquareMatrix& other) const {
+    if (_size != other._size) {
+        return false;
+    }
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            if (_data[i][j] <= other._data[i][j]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool SquareMatrix::operator<(const SquareMatrix& other) const {
+    if (_size != other._size) {
+        return false;
+    }
+
+    for (int i = 0; i < _size; ++i) {
+        for (int j = 0; j < _size; ++j) {
+            if (_data[i][j] >= other._data[i][j]) {
+                return false;
+            }
+        }
+    }
+
     return true;
 }
 
@@ -202,197 +518,68 @@ bool SquareMatrix::operator!=(const SquareMatrix& other) const {
     return !(*this == other);
 }
 
-// Output operator
-std::ostream& operator<<(std::ostream& os, const SquareMatrix& matrix) {
-    if (!matrix.isAllocated) {
-        os << "Unallocated matrix";
-        return os;
-    }
-    for (int i = 0; i < matrix.size; ++i) {
-        for (int j = 0; j < matrix.size; ++j) {
-            os << std::setw(4) << matrix.data[i][j];
-        }
-        os << std::endl;
-    }
-    return os;
-}
-
-SquareMatrix& SquareMatrix::fillDiagonal() {
-    if (!isAllocated) {
-        throw std::runtime_error("Matrix not allocated");
-    }
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            data[i][j] = (i == j) ? 1 : 0;
-        }
-    }
-    return *this;
-}
-
-SquareMatrix& SquareMatrix::fillChessboardStyle() {
-    if (!isAllocated) {
-        throw std::runtime_error("Matrix not allocated");
-    }
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            data[i][j] = (i + j) % 2;
-        }
-    }
-    return *this;
-}
-
-SquareMatrix& SquareMatrix::operator=(const SquareMatrix& other) {
-    if (this != &other) {
-        if (!isAllocated || size != other.size) {
-            deallocateMemory();
-            size = other.size;
-            allocateMemory();
-        }
-        copyData(other);
-    }
-    return *this;
-}
-
-SquareMatrix SquareMatrix::operator+(const SquareMatrix& other) const {
-    if (size != other.size) {
-        throw std::invalid_argument("Matrix dimensions must match");
-    }
-    SquareMatrix result(size);
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            result.data[i][j] = data[i][j] + other.data[i][j];
-        }
-    }
-    return result;
-}
-
-SquareMatrix SquareMatrix::operator*(const SquareMatrix& other) const {
-    if (size != other.size) {
-        throw std::invalid_argument("Matrix dimensions must match");
-    }
-    SquareMatrix result(size);
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            result.data[i][j] = 0;
-            for (int k = 0; k < size; ++k) {
-                result.data[i][j] += data[i][k] * other.data[k][j];
-            }
-        }
-    }
-    return result;
-}
-
-SquareMatrix& SquareMatrix::operator+=(int scalar) {
-    if (!isAllocated) {
-        throw std::runtime_error("Matrix not allocated");
-    }
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            data[i][j] += scalar;
-        }
-    }
-    return *this;
-}
-
-bool SquareMatrix::operator>(const SquareMatrix& other) const {
-    if (size != other.size) {
-        throw std::invalid_argument("Matrix dimensions must match");
-    }
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            if (data[i][j] <= other.data[i][j]) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-bool SquareMatrix::operator<(const SquareMatrix& other) const {
-    if (size != other.size) {
-        throw std::invalid_argument("Matrix dimensions must match");
-    }
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            if (data[i][j] >= other.data[i][j]) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-int SquareMatrix::displayWidth = 4;
-
-void SquareMatrix::setDisplayPrecision(int width) {
-    displayWidth = width;
-}
-
 void SquareMatrix::displayFull() const {
-    if (!isAllocated) {
-        std::cout << "Unallocated matrix\n";
-        return;
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
     }
 
     // Display column headers
     std::cout << "     ";
-    for (int j = 0; j < size; ++j) {
+    for (int j = 0; j < _size; ++j) {
         std::cout << std::setw(4) << j;
     }
     std::cout << "\n";
 
     // Display separator
     std::cout << "    ";
-    for (int j = 0; j < size * 4 + 1; ++j) {
+    for (int j = 0; j < _size * 4 + 1; ++j) {
         std::cout << "-";
     }
     std::cout << "\n";
 
     // Display matrix with row numbers
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < _size; ++i) {
         std::cout << std::setw(3) << i << " |";
-        for (int j = 0; j < size; ++j) {
-            std::cout << std::setw(4) << data[i][j];
+        for (int j = 0; j < _size; ++j) {
+            std::cout << std::setw(4) << _data[i][j];
         }
         std::cout << "\n";
     }
 }
 
 void SquareMatrix::displayTruncated() const {
-    if (!isAllocated) {
-        std::cout << "Unallocated matrix\n";
-        return;
+    if (!_isAllocated) {
+        throw std::runtime_error("Matrix not allocated");
     }
 
     const int show_rows = 8; // Number of rows to show at start and end
-    
+
     // Display first rows
-    for (int i = 0; i < std::min(show_rows, size); ++i) {
+    for (int i = 0; i < std::min(show_rows, _size); ++i) {
         std::cout << std::setw(3) << i << " |";
-        for (int j = 0; j < std::min(show_rows, size); ++j) {
-            std::cout << std::setw(4) << data[i][j];
+        for (int j = 0; j < std::min(show_rows, _size); ++j) {
+            std::cout << std::setw(4) << _data[i][j];
         }
-        if (size > show_rows) {
-            std::cout << " ... " << std::setw(4) << data[i][size-1];
+        if (_size > show_rows) {
+            std::cout << " ... " << std::setw(4) << _data[i][_size - 1];
         }
         std::cout << "\n";
     }
 
     // Display middle separator if needed
-    if (size > show_rows * 2) {
+    if (_size > show_rows * 2) {
         std::cout << "     ...\n";
     }
 
     // Display last rows
-    if (size > show_rows) {
-        for (int i = size - show_rows; i < size; ++i) {
+    if (_size > show_rows) {
+        for (int i = _size - show_rows; i < _size; ++i) {
             std::cout << std::setw(3) << i << " |";
-            for (int j = 0; j < std::min(show_rows, size); ++j) {
-                std::cout << std::setw(4) << data[i][j];
+            for (int j = 0; j < std::min(show_rows, _size); ++j) {
+                std::cout << std::setw(4) << _data[i][j];
             }
-            if (size > show_rows) {
-                std::cout << " ... " << std::setw(4) << data[i][size-1];
-            }
+
+            std::cout << " ... " << std::setw(4) << _data[i][_size - 1];
             std::cout << "\n";
         }
     }

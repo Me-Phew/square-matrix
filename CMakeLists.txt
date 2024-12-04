@@ -9,7 +9,6 @@ include_directories(src/square_matrix src/utils)
 set(SOURCES 
     src/square_matrix/square_matrix.cpp
     src/utils/common/common.cpp
-    src/utils/random_number_generator/random_number_generator.cpp
     src/main.cpp
 )
 
