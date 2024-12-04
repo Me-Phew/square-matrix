@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getrandomnumber_0',['getRandomNumber',['../classRandomNumberGenerator.html#a6078dcc0412152b8b83dbdf3d09ba727',1,'RandomNumberGenerator']]]
+  ['getsize_0',['getSize',['../classSquareMatrix.html#aa95003d94d228049f29270eb2b883473',1,'SquareMatrix']]]
 ];

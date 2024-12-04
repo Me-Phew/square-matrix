@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['randomnumbergenerator_0',['RandomNumberGenerator',['../classRandomNumberGenerator.html',1,'']]]
+  ['squarematrix_0',['SquareMatrix',['../classSquareMatrix.html',1,'']]]
 ];
