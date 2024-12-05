@@ -2,3 +2,163 @@
 \section{Implementacja}		%4
 %Opisać implementacje algorytmu/programu. Pokazać ciekawe fragmenty kodu
 %Opisać powstałe wyniki (algorytmu/nrzędzia)
+W tej sekcji przedstawiono szczegóły implementacji klasy \texttt{matrix}, omówiono najważniejsze fragmenty kodu oraz wyniki uzyskane w trakcie działania programu.
+
+\subsection{Opis implementacji}
+Klasa \texttt{matrix} została zaprojektowana z myślą o dynamicznym zarządzaniu pamięcią dla kwadratowych macierzy o wymiarach \(n \times n\). Kluczowe elementy implementacji obejmują:
+\begin{itemize}
+  \item \textbf{Konstruktor i destruktor:}
+        Klasa wykorzystuje konstruktor do alokacji pamięci oraz destruktor do jej zwalniania, co zapobiega wyciekom pamięci.
+  \item \textbf{Operacje matematyczne:}
+        Klasa obsługuje dodawanie, mnożenie i transpozycję macierzy. Metody te są zaimplementowane w sposób uwzględniający zgodność wymiarów macierzy.
+  \item \textbf{Walidacja danych:}
+        Operacje na macierzach są zabezpieczone przed nieprawidłowymi operacjami, takimi jak próba mnożenia macierzy o różnych wymiarach.
+\end{itemize}
+
+\subsection{Fragmenty kodu}
+Poniżej zaprezentowano najważniejsze fragmenty kodu, które ilustrują implementację wybranych funkcji:
+
+\subsubsection{Konstruktor klasy \texttt{matrix}}
+Konstruktor klasy odpowiada za dynamiczną alokację pamięci \textbf{(Listing 1)}:
+\begin{lstlisting}[language=C++, caption={Konstuktor klasy}, label={lst:operator}]
+Matrix::Matrix(size_t n) : size(n) {
+    data = new double*[size];
+    for (size_t i = 0; i < size; ++i) {
+        data[i] = new double[size]();
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Operacja mnożenia macierzy}
+Poniżej przedstawiono implementację funkcji realizującej mnożenie dwóch macierzy \textbf{(Listing 2)}:
+\begin{lstlisting}[language=C++, caption={Implementacja funkcji \texttt{operator}}, label={lst:operator}]
+Matrix Matrix::operator*(const Matrix& other) const {
+    if (size != other.size) {
+        throw std::invalid_argument("Incompatible matrix dimensions.");
+    }
+    Matrix result(size);
+    for (size_t i = 0; i < size; ++i) {
+        for (size_t j = 0; j < size; ++j) {
+            for (size_t k = 0; k < size; ++k) {
+                result.data[i][j] += data[i][k] * other.data[k][j];
+            }
+        }
+    }
+    return result;
+}
+\end{lstlisting}
+
+\subsubsection{Transpozycja macierzy}
+Funkcja transponuje macierz, zamieniając wiersze z kolumnami \textbf{(Listing 3)}:
+\begin{lstlisting}[language=C++, caption={Implementacja fukncji \texttt{Transpose}}, label={lst:transpose}]
+Matrix Matrix::transpose() const {
+    Matrix result(size);
+    for (size_t i = 0; i < size; ++i) {
+        for (size_t j = 0; j < size; ++j) {
+            result.data[j][i] = data[i][j];
+        }
+    }
+    return result;
+}
+\end{lstlisting}
+
+\newpage
+
+\subsection{GitHub Copilot}
+
+\subsection{Trudności i ograniczenia w pracy z AI}
+
+W trakcie implementacji z użyciem Copilot napotkaliśmy zarówno zalety, jak i wyzwania związane z wykorzystaniem sztucznej inteligencji. Poniżej podsumowano kluczowe aspekty współpracy z Copilotem.
+
+\subsubsection{W czym AI sobie nie radziła?}
+
+Podczas pracy z Copilotem zauważyliśmy kilka problemów:
+
+\begin{enumerate}
+  \item \textbf{Nieprecyzyjne sugestie w bardziej złożonych algorytmach.} \\
+        AI często proponowała błędne implementacje bardziej skomplikowanych funkcji, takich jak obliczanie wyznacznika macierzy czy mnożenie macierzy. Na przykład pierwotnie wygenerowany kod dla mnożenia macierzy nie uwzględniał sumowania elementów w odpowiednich iteracjach \textbf{(Listing 4)}:
+
+        \begin{lstlisting}[language=C++, caption=Błędna implementacja mnożenia macierzy]
+    SquareMatrix multiply(const SquareMatrix &other) const {
+        if (size != other.size) {
+            throw std::invalid_argument("Matrix dimensions must match");
+        }
+        SquareMatrix result(size);
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                result.matrix[i][j] = matrix[i][j] * other.matrix[i][j]; // BLAD
+            }
+        }
+        return result;
+    }
+    \end{lstlisting}
+
+        W tym przypadku AI błędnie uznała, że mnożenie elementów w tej samej pozycji w wierszach i kolumnach wystarczy, zamiast zastosować klasyczny algorytm mnożenia macierzy.
+
+        Poprawna implementacja wymagała ręcznej ingerencji \textbf{(Listing 5)}:
+
+        \begin{lstlisting}[language=C++, caption=Poprawna implementacja mnożenia macierzy]
+    SquareMatrix multiply(const SquareMatrix &other) const {
+        if (size != other.size) {
+            throw std::invalid_argument("Matrix dimensions must match");
+        }
+        SquareMatrix result(size);
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                result.matrix[i][j] = 0;
+                for (int k = 0; k < size; ++k) {
+                    result.matrix[i][j] += matrix[i][k] * other.matrix[k][j];
+                }
+            }
+        }
+        return result;
+    }
+    \end{lstlisting}
+
+  \item \textbf{Nieoptymalne zarządzanie pamięcią.} \\
+        Copilot czasami sugerował wykorzystanie statycznych tablic zamiast dynamicznej alokacji pamięci, co ograniczało skalowalność programu. Ręczna refaktoryzacja była konieczna, aby zastosować elastyczną strukturę, taką jak \texttt{std::vector}.
+\end{enumerate}
+
+\subsubsection{Jakie błędy popełniała AI?}
+
+\begin{itemize}
+  \item \textbf{Nieprawidłowa obsługa wyjątków:} W wygenerowanym kodzie brakowało odpowiednich rzutów wyjątków w funkcjach, co prowadziło do nieprzewidzianego zachowania w sytuacjach brzegowych.
+  \item \textbf{Niejasne komentarze:} AI generowała komentarze, które były zbyt ogólne i mało pomocne, np. \texttt{// Add matrices}, co wymagało ręcznej edycji.
+\end{itemize}
+
+\subsubsection{W czym AI pomogła?}
+
+Mimo trudności, Copilot znacząco przyspieszył proces tworzenia kodu poprzez:
+\begin{itemize}
+  \item \textbf{Automatyzację prostych funkcji:} AI dobrze radziła sobie z generowaniem podstawowych metod, takich jak akcesory (\texttt{getElement} i \texttt{setElement}) oraz funkcji wyświetlających macierz.
+  \item \textbf{Sugestie składniowe:} W wielu przypadkach Copilot znacząco ułatwił tworzenie pętli i warunków dzięki precyzyjnym sugestiom składniowym.
+\end{itemize}
+
+Przykład wygenerowanej poprawnej funkcji wyświetlania macierzy \textbf{(Listing 6)}:
+\begin{lstlisting}[language=C++, caption=Funkcja wyświetlająca macierz]
+void display() const {
+    for (const auto &row : matrix) {
+        for (const auto &element : row) {
+            std::cout << element << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+\end{lstlisting}
+
+\subsection{Wnioski z pracy z Copilotem}
+
+Praca z AI, takim jak Copilot, była cennym doświadczeniem, które pokazało zarówno mocne, jak i słabe strony tego narzędzia. Sztuczna inteligencja okazała się bardzo przydatna przy generowaniu kodu dla prostych operacji oraz w sytuacjach, gdy kluczowa była znajomość składni języka C++. Jednak w przypadku bardziej złożonych algorytmów konieczne było ręczne wprowadzanie poprawek, a także samodzielne projektowanie struktury programu.
+
+W kolejnych projektach warto korzystać z Copilota jako narzędzia wspomagającego, ale z zachowaniem krytycznego podejścia do wygenerowanego kodu.
+
+\subsection{Wyniki działania programu}
+Przeprowadzone testy jednostkowe w środowisku Google Test wykazały, że:
+\begin{itemize}
+  \item Operacje matematyczne, takie jak dodawanie, mnożenie i transpozycja, zostały zaimplementowane poprawnie.
+  \item Program prawidłowo obsługuje sytuacje wyjątkowe, np. próby mnożenia macierzy o różnych wymiarach.
+  \item Algorytm efektywnie działa dla macierzy o wymiarach do \(1000 \times 1000\).
+\end{itemize}
+
+\subsection{Podsumowanie}
+Implementacja klasy \texttt{matrix} została zrealizowana zgodnie z założeniami projektowymi. Dzięki zastosowaniu dynamicznej alokacji pamięci oraz obsłudze wyjątków, program jest elastyczny i odporny na nieprzewidziane błędy. Wyniki testów potwierdzają poprawność oraz wydajność zaimplementowanego algorytmu.

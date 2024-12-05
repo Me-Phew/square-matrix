@@ -1,3 +1,39 @@
 \newpage
 \section{Wnioski}	%5
 %Npisać wnioski końcowe z przeprowadzonego projektu, 
+Realizacja projektu implementacji klasy \texttt{matrix} umożliwiła zgłębienie praktycznych aspektów programowania w języku C++. W ramach pracy osiągnięto następujące cele:
+\begin{itemize}
+  \item Zaprojektowano i zaimplementowano klasę obsługującą operacje matematyczne na kwadratowych macierzach o wymiarach \(n \times n\), z zachowaniem zasad dynamicznego zarządzania pamięcią.
+  \item Opracowano efektywne metody realizujące operacje dodawania, mnożenia oraz transpozycji macierzy, z uwzględnieniem walidacji poprawności danych wejściowych.
+  \item Przeprowadzono testy jednostkowe, które potwierdziły poprawność implementacji oraz wydajność algorytmów w różnych scenariuszach, w tym dla dużych macierzy.
+\end{itemize}
+
+\subsection{Wnioski techniczne}
+\begin{itemize}
+  \item \textbf{Znaczenie zarządzania pamięcią:}
+        Projekt ukazał kluczową rolę poprawnej alokacji i dealokacji pamięci w zapobieganiu wyciekom i problemom z wydajnością w programach o dużej złożoności.
+  \item \textbf{Obsługa wyjątków:}
+        Implementacja walidacji wejścia oraz mechanizmów obsługi wyjątków pozwoliła zwiększyć niezawodność programu.
+  \item \textbf{Optymalizacja algorytmów:}
+        Dla dużych macierzy (np. \(1000 \times 1000\)) istotne było zapewnienie efektywności obliczeniowej, co osiągnięto dzięki odpowiedniemu zagnieżdżeniu pętli i minimalizacji operacji pamięciowych.
+\end{itemize}
+
+\subsection{Wnioski ogólne}
+Przeprowadzone prace nad projektem pozwoliły:
+\begin{itemize}
+  \item Udoskonalić umiejętności programistyczne w zakresie języka C++ oraz posługiwania się narzędziami kontroli wersji (\texttt{git}).
+  \item Zrozumieć praktyczne zastosowanie algorytmów matematycznych w rozwiązywaniu problemów inżynierskich.
+  \item Zwiększyć świadomość na temat potencjału oraz ograniczeń narzędzi wspierających, takich jak GitHub Copilot, które przyspieszają proces tworzenia kodu, ale wymagają krytycznego podejścia i weryfikacji wygenerowanych wyników.
+\end{itemize}
+
+\subsection{Potencjalne kierunki rozwoju}
+W przyszłości możliwe jest rozszerzenie projektu o:
+\begin{itemize}
+  \item Implementację bardziej zaawansowanych operacji matematycznych, takich jak wyznacznik, rząd macierzy czy rozkład LU.
+  \item Optymalizację algorytmów poprzez zastosowanie wielowątkowości, co mogłoby znacznie zwiększyć wydajność przy pracy z dużymi macierzami.
+  \item Integrację z innymi projektami, np. wizualizacją danych macierzowych w interfejsie graficznym.
+\end{itemize}
+
+Podsumowując, projekt ten był wartościowym doświadczeniem edukacyjnym, łączącym teorię z praktyką, a uzyskane wyniki potwierdzają zarówno poprawność implementacji, jak i jej potencjał do dalszego rozwoju.
+
+\nocite{gitHubCopilot}

@@ -2,4 +2,36 @@
 \section{Ogólne określenie wymagań}		%1
 %Określenie celu pracy, co chcemy uzyskać, jakie przewidujemy wyniki
 
-\input{tex/template_tutorial.tex}
+Celem projektu jest stworzenie klasy \texttt{matrix} w języku C++, która pozwala na dynamiczne zarządzanie kwadratowymi macierzami o wymiarach \( n \times n \). Klasa ta powinna zapewniać szeroki zakres funkcjonalności, takich jak alokacja pamięci, operacje na elementach macierzy, generowanie macierzy specjalnych oraz obsługa operatorów. Ostatecznym rezultatem jest stworzenie wydajnego i funkcjonalnego narzędzia do pracy z macierzami, które spełnia wszystkie wymagania zadania.
+
+
+\subsection{Cel pracy}
+Podstawowym celem jest stworzenie modułu \texttt{matrix}, który:
+\begin{itemize}
+  \item umożliwia dynamiczne alokowanie i zwalnianie pamięci na stercie,
+  \item realizuje operacje takie jak dodawanie, mnożenie, transpozycja oraz inne transformacje macierzy,
+  \item zapewnia obsługę wyjątków i mechanizmy kontroli poprawności operacji (np. mnożenie macierzy musi spełniać wymagania matematyczne co do wymiarów),
+  \item jest w pełni przetestowany poprzez zestaw scenariuszy uruchamianych z poziomu funkcji \texttt{main}.
+\end{itemize}
+
+\subsection{Przewidywane wyniki}
+Projekt ma dostarczyć:
+\begin{itemize}
+  \item Wydajną i poprawną implementację klasy \texttt{matrix}, która spełnia wszystkie wymienione wymagania.
+  \item Testy sprawdzające poprawność działania klasy dla macierzy o różnych wymiarach, w tym dużych \( n > 30 \).
+  \item Dokumentację wygenerowaną przy użyciu Doxygen oraz rozbudowany opis w LaTeX, zawierający analizę funkcjonalności i trudności napotkanych podczas implementacji.
+  \item Praktyczne doświadczenie w wykorzystaniu GitHub Copilot jako narzędzia wspierającego programowanie oraz w pracy zespołowej z użyciem systemu kontroli wersji Git.
+\end{itemize}
+
+\subsection{Zakres projektu}
+Projekt obejmuje:
+\begin{itemize}
+  \item Implementację klasy \texttt{matrix} w języku C++ w osobnym pliku źródłowym.
+  \item Funkcję \texttt{main} testującą wszystkie zaimplementowane funkcjonalności.
+  \item Mechanizmy alokacji dynamicznej, zarządzania pamięcią i zabezpieczenia przed błędnymi operacjami.
+  \item Obsługę przeciążonych operatorów matematycznych dla macierzy.
+  \item Dokumentację w formacie LaTeX oraz automatycznie generowaną dokumentację kodu przy pomocy Doxygen.
+  \item Analizę wykorzystania narzędzi AI w procesie tworzenia projektu oraz wpływ AI na efektywność pracy.
+\end{itemize}
+
+Projekt ten pozwoli nie tylko na zdobycie praktycznych umiejętności programistycznych, ale również na pogłębienie wiedzy w zakresie tworzenia dokumentacji oraz efektywnej pracy zespołowej.

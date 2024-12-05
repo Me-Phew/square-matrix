@@ -4,3 +4,74 @@
 %Opisać sposób działania programu/algorytmu
 %Napisać spsoób wykorzystania algorytmu po przez wykonanie przykładu (np. mnożenie macierzy - wykonać ręcznie przykład z mnożeniem macierzy pokazujący jak mnoży się macierz ręcznie)
 %Jeśli zadanie zakłada przedstawienie jakiegoś narzędzia (np. git, AI) należy opisać narzędzie
+\subsection{Zastosowania macierzy}
+Macierze są fundamentalnym narzędziem matematycznym używanym w wielu dziedzinach nauki i technologii. Przykładowe zastosowania obejmują:
+\begin{itemize}
+  \item Rozwiązywanie układów równań liniowych w algebrze,
+  \item Grafika komputerowa – transformacje, przekształcenia 3D,
+  \item Analiza danych – metody PCA (Principal Component Analysis),
+  \item Modelowanie systemów dynamicznych w fizyce i inżynierii,
+  \item Sztuczna inteligencja – obliczenia w sieciach neuronowych.
+\end{itemize}
+
+W naszym projekcie klasa \texttt{matrix} dostarczy zestaw narzędzi pozwalających na implementację wybranych operacji matematycznych i przekształceń. Zostanie także przetestowana jej wydajność i poprawność działania w środowisku C++.
+
+\subsection{Opis działania programu}
+Program realizowany w ramach projektu implementuje klasę \texttt{matrix}, która pozwala na dynamiczne zarządzanie macierzami oraz wykonywanie operacji matematycznych.
+Sposób działania programu można podzielić na następujące kroki:
+\begin{enumerate}
+  \item Dynamiczne zaalokowanie pamięci dla macierzy \( n \times n \).
+  \item Wypełnienie macierzy losowymi wartościami, wartościami przekątnymi, wierszami lub kolumnami zgodnie z wybranym algorytmem.
+  \item Wykonywanie operacji matematycznych, takich jak dodawanie, mnożenie czy transpozycja.
+  \item Zabezpieczenie programu przed błędnymi operacjami, np. próbą mnożenia macierzy o niezgodnych wymiarach.
+  \item Testowanie i wizualizacja wyników działania programu w konsoli lub poprzez zapis do pliku.
+\end{enumerate}
+
+\subsection{Przykład działania – mnożenie macierzy}
+Mnożenie macierzy odbywa się według następującego schematu:
+Dane są macierze:
+\[
+  A =
+  \begin{bmatrix}
+    1 & 2 \\
+    3 & 4 \\
+  \end{bmatrix}, \quad
+  B =
+  \begin{bmatrix}
+    5 & 6 \\
+    7 & 8 \\
+  \end{bmatrix}.
+\]
+
+Iloczyn macierzy \( C = A \cdot B \) obliczamy według wzoru:
+\[
+  C(i, j) = \sum_{k=1}^n A(i, k) \cdot B(k, j).
+\]
+
+Dla podanych macierzy obliczenia wyglądają następująco:
+\[
+  C(1, 1) = 1 \cdot 5 + 2 \cdot 7 = 19, \quad
+  C(1, 2) = 1 \cdot 6 + 2 \cdot 8 = 22,
+\]
+\[
+  C(2, 1) = 3 \cdot 5 + 4 \cdot 7 = 43, \quad
+  C(2, 2) = 3 \cdot 6 + 4 \cdot 8 = 50.
+\]
+
+Wynikowa macierz \( C \) to:
+\[
+  C =
+  \begin{bmatrix}
+    19 & 22 \\
+    43 & 50 \\
+  \end{bmatrix}.
+\]
+
+\subsection{Wykorzystanie narzędzi AI i systemu kontroli wersji Git}
+W projekcie stosowane są następujące narzędzia:
+\begin{itemize}
+  \item \textbf{GitHub Copilot}: Narzędzie wspomagające pisanie kodu poprzez sugestie generowane przez sztuczną inteligencję. Copilot przyspiesza proces implementacji, ale wymaga uważnej weryfikacji wygenerowanego kodu.
+  \item \textbf{Git}: System kontroli wersji umożliwiający efektywną współpracę w zespole. Git pozwala na śledzenie zmian w projekcie, pracę nad różnymi funkcjonalnościami w oddzielnych gałęziach oraz łatwe rozwiązywanie konfliktów kodu.
+\end{itemize}
+
+Oba narzędzia są kluczowe w projekcie, wspierając zarówno implementację kodu, jak i jego organizację w repozytorium.

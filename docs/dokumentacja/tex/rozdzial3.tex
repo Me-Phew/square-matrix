@@ -4,3 +4,30 @@
 %Opisać szczegółowe ustawienia kompilatora (jeśli są), powiązania z bibliotekami, itp.
 %Narysować graf, UML, diagram klas, schemat działania algorytmu
 %Jeśli zadanie zakłada przedstawienie jakiegoś narzędzia (np. git, AI) należy opisać sposób jego używania
+W projekcie implementacji klasy \texttt{matrix} wykorzystano następujące narzędzia:
+
+\subsection{Narzędzia programistyczne}
+\begin{itemize}
+  \item \textbf{Język programowania i kompilator:}
+        Projekt został napisany w języku \textbf{C++}, a do kompilacji kodu wykorzystano narzędzie \textbf{CMake}, które umożliwia zarządzanie konfiguracją procesu budowania oraz integrację z bibliotekami zewnętrznymi.
+  \item \textbf{Google Test:}
+        W celu przetestowania poprawności implementacji metod klasy \texttt{matrix} użyto frameworka \textbf{Google Test}. Testy obejmują weryfikację operacji matematycznych (np. dodawanie, mnożenie) oraz transformacji macierzy (np. transpozycja).
+  \item \textbf{Doxygen:}
+        Do generowania dokumentacji kodu źródłowego wykorzystano narzędzie \textbf{Doxygen}, które pozwala na automatyczne tworzenie szczegółowego opisu funkcji, zmiennych i struktur projektu.
+\end{itemize}
+
+\subsection{Kontrola wersji}
+Kod źródłowy projektu jest zarządzany za pomocą systemu kontroli wersji \textbf{Git}, a repozytorium znajduje się na platformie \textbf{GitHub} pod adresem:
+\url{https://github.com/Me-Phew/square-matrix}.
+Zastosowano standardowe praktyki zarządzania kodem, takie jak regularne commitowanie zmian i utrzymywanie głównej gałęzi w stanie gotowym do użycia.
+
+\subsection{Specyfikacja kompilatora}
+W projekcie wykorzystano następujące ustawienia kompilatora:
+\begin{itemize}
+  \item Standard języka: \textbf{C++17}.
+  \item Plik konfiguracyjny \texttt{CMakeLists.txt} definiuje właściwości kompilacji oraz linkowanie z biblioteką Google Test.
+\end{itemize}
+
+\subsection{Sposób użycia narzędzi AI}
+W trakcie implementacji projektu wspierano się narzędziem \textbf{GitHub Copilot}, które oferowało sugestie dotyczące składni i implementacji funkcji. Narzędzie to było szczególnie pomocne w przyspieszeniu procesu tworzenia kodu oraz w poprawie czytelności. Szczegóły wykorzystania AI oraz analiza jego efektywności zostaną omówione w kolejnym rozdziale.
+

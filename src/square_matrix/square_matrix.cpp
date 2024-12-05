@@ -16,14 +16,6 @@
 #include <stdexcept>
 #include <random>
 
-int SquareMatrix::getSize() const {
-    return _size;
-}
-
-bool SquareMatrix::getIsAllocated() const {
-    return _isAllocated;
-}
-
 void SquareMatrix::allocateMemory() {
     try {
         _data = new int* [_size];
