@@ -1,10 +1,11 @@
 /**
  * @author Marcin Dudek
  * @author Mateusz Basiaga (basmateusz@wp.pl)
- * @brief Klasa reprezentująca macierz kwadratową z funkcjonalnościami do modyfikacji i operacji arytmetycznych.
+ * @brief Klasa reprezentująca macierz kwadratową.
  * @date 2024-11-27
  *
  * @copyright Copyright (c) 2024
+ *
  */
 
 #ifndef SQUARE_MATRIX_HPP
@@ -12,184 +13,250 @@
 
 #include <iostream>
 
- /**
-  * @brief Klasa SquareMatrix - implementacja macierzy kwadratowej.
-  */
 class SquareMatrix {
 private:
-    int _size; ///< Rozmiar macierzy (liczba wierszy i kolumn).
-    int** _data; ///< Wskaźnik na tablicę dwuwymiarową przechowującą dane macierzy.
-    bool _isAllocated; ///< Flaga wskazująca, czy pamięć dla macierzy została zaalokowana.
+    int _size; ///< Rozmiar macierzy.
+    int** _data; ///< Wskaźnik na dane macierzy.
+    bool _isAllocated; ///< Flaga informująca, czy pamięć została przydzielona.
 
-    /// @brief Alokuje pamięć dla danych macierzy.
+    /// @brief Przydziela pamięć dla macierzy.
     void allocateMemory();
 
-    /// @brief Dealokuje pamięć zaalokowaną dla macierzy.
+    /// @brief Zwalnia pamięć zajmowaną przez macierz.
     void deallocateMemory();
 
     /// @brief Kopiuje dane z innej macierzy.
-    /// @param other Obiekt macierzy, z którego dane mają zostać skopiowane.
+    /// 
+    /// @param other Inna macierz, z której dane mają być skopiowane.
     void copyData(const SquareMatrix& other);
 
 public:
-    /// @brief Zwraca rozmiar macierzy.
-    /// @return Rozmiar macierzy (liczba wierszy/kolumn).
-    int getSize() const;
-
-    /// @brief Sprawdza, czy pamięć dla macierzy została zaalokowana.
-    /// @return True, jeśli pamięć została zaalokowana, w przeciwnym razie False.
-    bool getIsAllocated() const;
-
-    /// @brief Konstruktor domyślny.
+    /// @brief Konstruktor domyślny, tworzy pustą macierz.
     SquareMatrix();
 
-    /// @brief Konstruktor tworzący macierz o zadanym rozmiarze.
+    /// @brief Konstruktor z parametrem rozmiaru macierzy.
+    /// 
     /// @param size Rozmiar macierzy.
     explicit SquareMatrix(int size);
 
-    /// @brief Konstruktor tworzący macierz z danymi wiersza.
+    /// @brief Konstruktor z parametrem danych wiersza.
+    /// 
     /// @param size Rozmiar macierzy.
-    /// @param rowData Tablica danych wiersza.
+    /// @param rowData Dane wiersza do zainicjowania macierzy.
     SquareMatrix(int size, const int* rowData);
 
     /// @brief Konstruktor kopiujący.
-    /// @param other Obiekt macierzy do skopiowania.
+    /// 
+    /// @param other Inna macierz, która ma być skopiowana.
     SquareMatrix(SquareMatrix& other);
 
-    /// @brief Destruktor zwalniający zaalokowaną pamięć.
+    /// @brief Destruktor, zwalnia pamięć.
     ~SquareMatrix();
 
-    /// @brief Alokuje pamięć dla macierzy o zadanym rozmiarze.
+    /// @brief Przydziela pamięć dla macierzy o podanym rozmiarze.
+    /// 
     /// @param size Rozmiar macierzy.
-    /// @return Referencja do bieżącego obiektu.
+    /// @return Referencja do obiektu macierzy.
     SquareMatrix& allocate(int size);
 
-    /// @brief Wstawia wartość do macierzy.
-    /// @param row Indeks wiersza.
-    /// @param col Indeks kolumny.
+    /// @brief Wstawia wartość do elementu macierzy.
+    /// 
+    /// @param row Numer wiersza.
+    /// @param col Numer kolumny.
     /// @param value Wartość do wstawienia.
-    /// @return Referencja do bieżącego obiektu.
+    /// @return Referencja do obiektu macierzy.
     SquareMatrix& insert(int row, int col, int value);
 
-    /// @brief Pobiera wartość z macierzy.
-    /// @param row Indeks wiersza.
-    /// @param col Indeks kolumny.
-    /// @return Wartość zadanego elementu macierzy.
+    /// @brief Zwraca wartość z elementu macierzy.
+    /// 
+    /// @param row Numer wiersza.
+    /// @param col Numer kolumny.
+    /// @return Wartość elementu macierzy.
     int get(int row, int col);
 
     /// @brief Transponuje macierz.
-    /// @return Referencja do bieżącego obiektu.
+    /// 
+    /// @return Referencja do obiektu macierzy po transpozycji.
     SquareMatrix& transpose();
 
     /// @brief Losowo wypełnia macierz.
-    /// @return Referencja do bieżącego obiektu.
+    /// 
+    /// @return Referencja do obiektu macierzy po losowym wypełnieniu.
     SquareMatrix& randomize();
 
-    /// @brief Losowo wypełnia macierz z ograniczeniem liczby elementów do zmiany.
-    /// @param count Liczba elementów do zmiany.
-    /// @return Referencja do bieżącego obiektu.
+    /// @brief Losowo wypełnia macierz określoną liczbą losowych elementów.
+    /// 
+    /// @param count Liczba losowych elementów.
+    /// @return Referencja do obiektu macierzy po losowym wypełnieniu.
     SquareMatrix& randomize(int count);
 
-    /// @brief Wstawia dane do głównej przekątnej macierzy.
-    /// @param mainDiagonalData Tablica danych do wstawienia.
-    /// @return Referencja do bieżącego obiektu.
+    /// @brief Wstawia dane na główną przekątną macierzy.
+    /// 
+    /// @param mainDiagonalData Dane do wstawienia na główną przekątną.
+    /// @return Referencja do obiektu macierzy po wstawieniu danych.
     SquareMatrix& insertMainDiagonal(const int* mainDiagonalData);
 
-    /// @brief Wstawia dane do przekątnej z przesunięciem.
-    /// @param offset Przesunięcie od głównej przekątnej.
-    /// @param diagonalData Tablica danych do wstawienia.
-    /// @return Referencja do bieżącego obiektu.
+    /// @brief Wstawia dane na przekątną o określonym przesunięciu.
+    /// 
+    /// @param offset Przesunięcie dla przekątnej.
+    /// @param diagonalData Dane do wstawienia na przekątną.
+    /// @return Referencja do obiektu macierzy po wstawieniu danych.
     SquareMatrix& insertDiagonal(int offset, const int* diagonalData);
 
-    /// @brief Wstawia dane do kolumny macierzy.
-    /// @param col Indeks kolumny.
-    /// @param columnData Tablica danych do wstawienia.
-    /// @return Referencja do bieżącego obiektu.
+    /// @brief Wstawia dane do kolumny.
+    /// 
+    /// @param col Numer kolumny.
+    /// @param columnData Dane do wstawienia w kolumnie.
+    /// @return Referencja do obiektu macierzy po wstawieniu danych.
     SquareMatrix& insertColumn(int col, const int* columnData);
 
-    /// @brief Wstawia dane do wiersza macierzy.
-    /// @param row Indeks wiersza.
-    /// @param rowData Tablica danych do wstawienia.
-    /// @return Referencja do bieżącego obiektu.
+    /// @brief Wstawia dane do wiersza.
+    /// 
+    /// @param row Numer wiersza.
+    /// @param rowData Dane do wstawienia w wierszu.
+    /// @return Referencja do obiektu macierzy po wstawieniu danych.
     SquareMatrix& insertRow(int row, const int* rowData);
 
-    /// @brief Wypełnia główną przekątną macierzy.
-    /// @return Referencja do bieżącego obiektu.
+    /// @brief Wypełnia macierz przekątną.
+    /// 
+    /// @return Referencja do obiektu macierzy po wypełnieniu przekątnej.
     SquareMatrix& fillDiagonal();
 
-    /// @brief Wypełnia obszar pod główną przekątną macierzy.
-    /// @return Referencja do bieżącego obiektu.
+    /// @brief Wypełnia macierz poniżej przekątnej.
+    /// 
+    /// @return Referencja do obiektu macierzy po wypełnieniu poniżej przekątnej.
     SquareMatrix& fillUnderDiagonal();
 
-    /// @brief Wypełnia obszar nad główną przekątnią macierzy.
-    /// @return Referencja do bieżącego obiektu.
+    /// @brief Wypełnia macierz powyżej przekątnej.
+    /// 
+    /// @return Referencja do obiektu macierzy po wypełnieniu powyżej przekątnej.
     SquareMatrix& fillOverDiagonal();
 
     /// @brief Wypełnia macierz w stylu szachownicy.
-    /// @return Referencja do bieżącego obiektu.
+    /// 
+    /// @return Referencja do obiektu macierzy po wypełnieniu w stylu szachownicy.
     SquareMatrix& fillChessboardStyle();
 
-    /// @brief Operator dodawania macierzy.
-    /// @param other Druga macierz do dodania.
-    /// @return Nowa macierz będąca wynikiem operacji.
+    /// @brief Dodaje dwie macierze.
+    /// 
+    /// @param other Inna macierz do dodania.
+    /// @return Nowa macierz po dodaniu.
     SquareMatrix& operator+(const SquareMatrix& other) const;
 
-    /// @brief Operator mnożenia macierzy.
-    /// @param other Druga macierz do pomnożenia.
-    /// @return Nowa macierz będąca wynikiem operacji.
+    /// @brief Mnoży dwie macierze.
+    /// 
+    /// @param other Inna macierz do pomnożenia.
+    /// @return Nowa macierz po mnożeniu.
     SquareMatrix& operator*(const SquareMatrix& other) const;
 
-    /// @brief Operator dodawania skalaru do macierzy.
+    /// @brief Dodaje skalara do macierzy.
+    /// 
     /// @param scalar Skalar do dodania.
-    /// @return Nowa macierz będąca wynikiem operacji.
+    /// @return Nowa macierz po dodaniu skalara.
     SquareMatrix& operator+(int scalar) const;
 
-    /// @brief Operator mnożenia macierzy przez skalar.
-    /// @param scalar Skalar do pomnożenia.
-    /// @return Nowa macierz będąca wynikiem operacji.
+    /// @brief Mnoży macierz przez skalar.
+    /// 
+    /// @param scalar Skalar do mnożenia.
+    /// @return Nowa macierz po mnożeniu przez skalar.
     SquareMatrix& operator*(int scalar) const;
 
-    /// @brief Dodaje wartość skalarną do każdego elementu macierzy kwadratowej.
+    /// @brief Odejmuje skalar od macierzy.
     /// 
-    /// @param value Wartość skalarna do dodania.
-    /// @return Referencja do zmodyfikowanej macierzy kwadratowej.
-    SquareMatrix& operator+=(double value);
+    /// @param scalar Skalar do odjęcia.
+    /// @return Nowa macierz po odjęciu skalara.
+    SquareMatrix& operator-(int scalar) const;
 
-    /// @brief Wypisuje macierz kwadratową do podanego strumienia wyjściowego.
+    /// @brief Dodaje skalar do macierzy.
+    /// 
+    /// @param scalar Skalar do dodania.
+    /// @param matrix Macierz do dodania skalara.
+    /// @return Nowa macierz po dodaniu skalara.
+    friend SquareMatrix operator+(int scalar, const SquareMatrix& matrix);
+
+    /// @brief Mnoży macierz przez skalar.
+    /// 
+    /// @param scalar Skalar do mnożenia.
+    /// @param matrix Macierz do mnożenia przez skalar.
+    /// @return Nowa macierz po mnożeniu przez skalar.
+    friend SquareMatrix operator*(int scalar, const SquareMatrix& matrix);
+
+    /// @brief Odejmuje macierz od skalara.
+    /// 
+    /// @param scalar Skalar, od którego odejmujemy macierz.
+    /// @param matrix Macierz do odjęcia.
+    /// @return Nowa macierz po odjęciu macierzy od skalara.
+    friend SquareMatrix operator-(int scalar, const SquareMatrix& matrix);
+
+    /// @brief Zwiększa macierz o 1.
+    /// 
+    /// @return Referencja do obiektu macierzy po inkrementacji.
+    SquareMatrix& operator++(int);
+
+    /// @brief Zmniejsza macierz o 1.
+    /// 
+    /// @return Referencja do obiektu macierzy po dekrementacji.
+    SquareMatrix& operator--(int);
+
+    /// @brief Dodaje skalar do macierzy i zwraca wynik.
+    /// 
+    /// @param scalar Skalar do dodania.
+    /// @return Referencja do obiektu macierzy po dodaniu skalara.
+    SquareMatrix& operator+=(int scalar);
+
+    /// @brief Odejmuje skalar od macierzy i zwraca wynik.
+    /// 
+    /// @param scalar Skalar do odjęcia.
+    /// @return Referencja do obiektu macierzy po odjęciu skalara.
+    SquareMatrix& operator-=(int scalar);
+
+    /// @brief Mnoży macierz przez skalar i zwraca wynik.
+    /// 
+    /// @param scalar Skalar do mnożenia.
+    /// @return Referencja do obiektu macierzy po mnożeniu przez skalar.
+    SquareMatrix& operator*=(int scalar);
+
+    /// @brief Dodaje skalar typu double do macierzy.
+    /// 
+    /// @param scalar Skalar typu double do dodania.
+    /// @return Referencja do obiektu macierzy po dodaniu skalara.
+    SquareMatrix& operator+=(double);
+
+    /// @brief Wypisuje macierz na standardowe wyjście.
     /// 
     /// @param os Strumień wyjściowy.
-    /// @param matrix Macierz kwadratowa do wypisania.
-    /// @return Referencja do strumienia wyjściowego.
+    /// @param matrix Macierz do wypisania.
+    /// @return Strumień wyjściowy.
     friend std::ostream& operator<<(std::ostream& os, const SquareMatrix& matrix);
 
-    /// @brief Porównuje dwie macierze kwadratowe pod kątem równości.
+    /// @brief Porównuje dwie macierze pod kątem równości.
     /// 
-    /// @param other Macierz kwadratowa do porównania.
-    /// @return True, jeśli macierze są równe, w przeciwnym razie false.
+    /// @param other Inna macierz do porównania.
+    /// @return Prawda, jeśli macierze są równe, fałsz w przeciwnym przypadku.
     bool operator==(const SquareMatrix& other) const;
 
-    /// @brief Porównuje, czy ta macierz kwadratowa jest większa od innej.
+    /// @brief Porównuje dwie macierze pod kątem większości.
     /// 
-    /// @param other Macierz kwadratowa do porównania.
-    /// @return True, jeśli ta macierz jest większa, w przeciwnym razie false.
+    /// @param other Inna macierz do porównania.
+    /// @return Prawda, jeśli pierwsza macierz jest większa od drugiej.
     bool operator>(const SquareMatrix& other) const;
 
-    /// @brief Porównuje, czy ta macierz kwadratowa jest mniejsza od innej.
+    /// @brief Porównuje dwie macierze pod kątem mniejszości.
     /// 
-    /// @param other Macierz kwadratowa do porównania.
-    /// @return True, jeśli ta macierz jest mniejsza, w przeciwnym razie false.
+    /// @param other Inna macierz do porównania.
+    /// @return Prawda, jeśli pierwsza macierz jest mniejsza od drugiej.
     bool operator<(const SquareMatrix& other) const;
 
-    /// @brief Porównuje dwie macierze kwadratowe pod kątem nierówności.
+    /// @brief Porównuje dwie macierze pod kątem nierówności.
     /// 
-    /// @param other Macierz kwadratowa do porównania.
-    /// @return True, jeśli macierze nie są równe, w przeciwnym razie false.
+    /// @param other Inna macierz do porównania.
+    /// @return Prawda, jeśli macierze są różne, fałsz w przeciwnym przypadku.
     bool operator!=(const SquareMatrix& other) const;
 
-    /// @brief Wyświetla pełną macierz kwadratową.
+    /// @brief Wyświetla pełną macierz.
     void displayFull() const;
 
-    /// @brief Wyświetla skróconą wersję macierzy kwadratowej.
+    /// @brief Wyświetla skróconą wersję macierzy.
     void displayTruncated() const;
 };
 
