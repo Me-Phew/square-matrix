@@ -53,7 +53,7 @@
               <td id="projectlogo"><img alt="Logo" src="favicon.svg"  /></td>
               <td id="projectalign">
                 <div id="projectname">Square Matrix<span
-                    id="projectnumber">&#160;v0.1.2</span>
+                    id="projectnumber">&#160;v0.1.3</span>
                 </div>
               </td>
             </tr>
@@ -130,159 +130,1129 @@ $(function(){initNavTree('classSquareMatrix.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
+<p>Klasa reprezentująca macierz kwadratową.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="square__matrix_8hpp_source.html">square_matrix.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa95003d94d228049f29270eb2b883473" id="r_aa95003d94d228049f29270eb2b883473"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa95003d94d228049f29270eb2b883473">getSize</a> () const</td></tr>
-<tr class="separator:aa95003d94d228049f29270eb2b883473"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a512fe0780bc61c2c07c1678d2205a370" id="r_a512fe0780bc61c2c07c1678d2205a370"><td class="memItemLeft" align="right" valign="top"><a id="a512fe0780bc61c2c07c1678d2205a370" name="a512fe0780bc61c2c07c1678d2205a370"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getIsAllocated</b> () const</td></tr>
-<tr class="separator:a512fe0780bc61c2c07c1678d2205a370"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f4226986d202e34dba99f011ad79b69" id="r_a9f4226986d202e34dba99f011ad79b69"><td class="memItemLeft" align="right" valign="top"><a id="a9f4226986d202e34dba99f011ad79b69" name="a9f4226986d202e34dba99f011ad79b69"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SquareMatrix</b> (int size)</td></tr>
+<tr class="memitem:a76dc18df134009fe0c211205921e9d7d" id="r_a76dc18df134009fe0c211205921e9d7d"><td class="memItemLeft" align="right" valign="top"><a id="a76dc18df134009fe0c211205921e9d7d" name="a76dc18df134009fe0c211205921e9d7d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SquareMatrix</b> ()</td></tr>
+<tr class="memdesc:a76dc18df134009fe0c211205921e9d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor domyślny, tworzy pustą macierz. <br /></td></tr>
+<tr class="separator:a76dc18df134009fe0c211205921e9d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f4226986d202e34dba99f011ad79b69" id="r_a9f4226986d202e34dba99f011ad79b69"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f4226986d202e34dba99f011ad79b69">SquareMatrix</a> (int size)</td></tr>
+<tr class="memdesc:a9f4226986d202e34dba99f011ad79b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor z parametrem rozmiaru macierzy.  <br /></td></tr>
 <tr class="separator:a9f4226986d202e34dba99f011ad79b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd503b575776fb8753b30cdd3a08f648" id="r_afd503b575776fb8753b30cdd3a08f648"><td class="memItemLeft" align="right" valign="top"><a id="afd503b575776fb8753b30cdd3a08f648" name="afd503b575776fb8753b30cdd3a08f648"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SquareMatrix</b> (int size, const int *rowData)</td></tr>
+<tr class="memitem:afd503b575776fb8753b30cdd3a08f648" id="r_afd503b575776fb8753b30cdd3a08f648"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd503b575776fb8753b30cdd3a08f648">SquareMatrix</a> (int size, const int *rowData)</td></tr>
+<tr class="memdesc:afd503b575776fb8753b30cdd3a08f648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor z parametrem danych wiersza.  <br /></td></tr>
 <tr class="separator:afd503b575776fb8753b30cdd3a08f648"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0f9850c3b08b9aa5ea67fc6762ee284" id="r_ad0f9850c3b08b9aa5ea67fc6762ee284"><td class="memItemLeft" align="right" valign="top"><a id="ad0f9850c3b08b9aa5ea67fc6762ee284" name="ad0f9850c3b08b9aa5ea67fc6762ee284"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>SquareMatrix</b> (<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other)</td></tr>
+<tr class="memitem:ad0f9850c3b08b9aa5ea67fc6762ee284" id="r_ad0f9850c3b08b9aa5ea67fc6762ee284"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0f9850c3b08b9aa5ea67fc6762ee284">SquareMatrix</a> (<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other)</td></tr>
+<tr class="memdesc:ad0f9850c3b08b9aa5ea67fc6762ee284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor kopiujący.  <br /></td></tr>
 <tr class="separator:ad0f9850c3b08b9aa5ea67fc6762ee284"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a409fdd62e0b5403b928122ea092a9be2" id="r_a409fdd62e0b5403b928122ea092a9be2"><td class="memItemLeft" align="right" valign="top"><a id="a409fdd62e0b5403b928122ea092a9be2" name="a409fdd62e0b5403b928122ea092a9be2"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>allocate</b> (int size)</td></tr>
+<tr class="memitem:a2649bb7f63dad4ef768cfe7f82b43542" id="r_a2649bb7f63dad4ef768cfe7f82b43542"><td class="memItemLeft" align="right" valign="top"><a id="a2649bb7f63dad4ef768cfe7f82b43542" name="a2649bb7f63dad4ef768cfe7f82b43542"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~SquareMatrix</b> ()</td></tr>
+<tr class="memdesc:a2649bb7f63dad4ef768cfe7f82b43542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destruktor, zwalnia pamięć. <br /></td></tr>
+<tr class="separator:a2649bb7f63dad4ef768cfe7f82b43542"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a409fdd62e0b5403b928122ea092a9be2" id="r_a409fdd62e0b5403b928122ea092a9be2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a409fdd62e0b5403b928122ea092a9be2">allocate</a> (int size)</td></tr>
+<tr class="memdesc:a409fdd62e0b5403b928122ea092a9be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przydziela pamięć dla macierzy o podanym rozmiarze.  <br /></td></tr>
 <tr class="separator:a409fdd62e0b5403b928122ea092a9be2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af132f5df4c8b4e24c5bf4985086f082e" id="r_af132f5df4c8b4e24c5bf4985086f082e"><td class="memItemLeft" align="right" valign="top"><a id="af132f5df4c8b4e24c5bf4985086f082e" name="af132f5df4c8b4e24c5bf4985086f082e"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (int row, int col, int value)</td></tr>
+<tr class="memitem:af132f5df4c8b4e24c5bf4985086f082e" id="r_af132f5df4c8b4e24c5bf4985086f082e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af132f5df4c8b4e24c5bf4985086f082e">insert</a> (int row, int col, int value)</td></tr>
+<tr class="memdesc:af132f5df4c8b4e24c5bf4985086f082e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wstawia wartość do elementu macierzy.  <br /></td></tr>
 <tr class="separator:af132f5df4c8b4e24c5bf4985086f082e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ede9c8ec5c921e75eaa47d42111d78" id="r_a90ede9c8ec5c921e75eaa47d42111d78"><td class="memItemLeft" align="right" valign="top"><a id="a90ede9c8ec5c921e75eaa47d42111d78" name="a90ede9c8ec5c921e75eaa47d42111d78"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> (int row, int col)</td></tr>
+<tr class="memitem:a90ede9c8ec5c921e75eaa47d42111d78" id="r_a90ede9c8ec5c921e75eaa47d42111d78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90ede9c8ec5c921e75eaa47d42111d78">get</a> (int row, int col)</td></tr>
+<tr class="memdesc:a90ede9c8ec5c921e75eaa47d42111d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca wartość z elementu macierzy.  <br /></td></tr>
 <tr class="separator:a90ede9c8ec5c921e75eaa47d42111d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6959080dbfeebf4c5b6430e3231a1e93" id="r_a6959080dbfeebf4c5b6430e3231a1e93"><td class="memItemLeft" align="right" valign="top"><a id="a6959080dbfeebf4c5b6430e3231a1e93" name="a6959080dbfeebf4c5b6430e3231a1e93"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>transpose</b> ()</td></tr>
+<tr class="memitem:a6959080dbfeebf4c5b6430e3231a1e93" id="r_a6959080dbfeebf4c5b6430e3231a1e93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6959080dbfeebf4c5b6430e3231a1e93">transpose</a> ()</td></tr>
+<tr class="memdesc:a6959080dbfeebf4c5b6430e3231a1e93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transponuje macierz.  <br /></td></tr>
 <tr class="separator:a6959080dbfeebf4c5b6430e3231a1e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a639e774bb16cfdbe638656198c22f52b" id="r_a639e774bb16cfdbe638656198c22f52b"><td class="memItemLeft" align="right" valign="top"><a id="a639e774bb16cfdbe638656198c22f52b" name="a639e774bb16cfdbe638656198c22f52b"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>randomize</b> ()</td></tr>
+<tr class="memitem:a639e774bb16cfdbe638656198c22f52b" id="r_a639e774bb16cfdbe638656198c22f52b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a639e774bb16cfdbe638656198c22f52b">randomize</a> ()</td></tr>
+<tr class="memdesc:a639e774bb16cfdbe638656198c22f52b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Losowo wypełnia macierz.  <br /></td></tr>
 <tr class="separator:a639e774bb16cfdbe638656198c22f52b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01c7c00ef057b503740a171d243cebca" id="r_a01c7c00ef057b503740a171d243cebca"><td class="memItemLeft" align="right" valign="top"><a id="a01c7c00ef057b503740a171d243cebca" name="a01c7c00ef057b503740a171d243cebca"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>randomize</b> (int count)</td></tr>
+<tr class="memitem:a01c7c00ef057b503740a171d243cebca" id="r_a01c7c00ef057b503740a171d243cebca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01c7c00ef057b503740a171d243cebca">randomize</a> (int count)</td></tr>
+<tr class="memdesc:a01c7c00ef057b503740a171d243cebca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Losowo wypełnia macierz określoną liczbą losowych elementów.  <br /></td></tr>
 <tr class="separator:a01c7c00ef057b503740a171d243cebca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac002c52c3680840e77739a3669e9a331" id="r_ac002c52c3680840e77739a3669e9a331"><td class="memItemLeft" align="right" valign="top"><a id="ac002c52c3680840e77739a3669e9a331" name="ac002c52c3680840e77739a3669e9a331"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>insertMainDiagonal</b> (const int *mainDiagonalData)</td></tr>
+<tr class="memitem:ac002c52c3680840e77739a3669e9a331" id="r_ac002c52c3680840e77739a3669e9a331"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac002c52c3680840e77739a3669e9a331">insertMainDiagonal</a> (const int *mainDiagonalData)</td></tr>
+<tr class="memdesc:ac002c52c3680840e77739a3669e9a331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wstawia dane na główną przekątną macierzy.  <br /></td></tr>
 <tr class="separator:ac002c52c3680840e77739a3669e9a331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e2d75cf6c74d4f038b3c8a328ca47cb" id="r_a4e2d75cf6c74d4f038b3c8a328ca47cb"><td class="memItemLeft" align="right" valign="top"><a id="a4e2d75cf6c74d4f038b3c8a328ca47cb" name="a4e2d75cf6c74d4f038b3c8a328ca47cb"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>insertDiagonal</b> (int offset, const int *diagonalData)</td></tr>
+<tr class="memitem:a4e2d75cf6c74d4f038b3c8a328ca47cb" id="r_a4e2d75cf6c74d4f038b3c8a328ca47cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e2d75cf6c74d4f038b3c8a328ca47cb">insertDiagonal</a> (int offset, const int *diagonalData)</td></tr>
+<tr class="memdesc:a4e2d75cf6c74d4f038b3c8a328ca47cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wstawia dane na przekątną o określonym przesunięciu.  <br /></td></tr>
 <tr class="separator:a4e2d75cf6c74d4f038b3c8a328ca47cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a445f2c5d4b76c7406535f44a1d69e541" id="r_a445f2c5d4b76c7406535f44a1d69e541"><td class="memItemLeft" align="right" valign="top"><a id="a445f2c5d4b76c7406535f44a1d69e541" name="a445f2c5d4b76c7406535f44a1d69e541"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>insertColumn</b> (int col, const int *columnData)</td></tr>
+<tr class="memitem:a445f2c5d4b76c7406535f44a1d69e541" id="r_a445f2c5d4b76c7406535f44a1d69e541"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a445f2c5d4b76c7406535f44a1d69e541">insertColumn</a> (int col, const int *columnData)</td></tr>
+<tr class="memdesc:a445f2c5d4b76c7406535f44a1d69e541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wstawia dane do kolumny.  <br /></td></tr>
 <tr class="separator:a445f2c5d4b76c7406535f44a1d69e541"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52f72ef14dc8d291b021f9076538aacb" id="r_a52f72ef14dc8d291b021f9076538aacb"><td class="memItemLeft" align="right" valign="top"><a id="a52f72ef14dc8d291b021f9076538aacb" name="a52f72ef14dc8d291b021f9076538aacb"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>insertRow</b> (int row, const int *rowData)</td></tr>
+<tr class="memitem:a52f72ef14dc8d291b021f9076538aacb" id="r_a52f72ef14dc8d291b021f9076538aacb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52f72ef14dc8d291b021f9076538aacb">insertRow</a> (int row, const int *rowData)</td></tr>
+<tr class="memdesc:a52f72ef14dc8d291b021f9076538aacb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wstawia dane do wiersza.  <br /></td></tr>
 <tr class="separator:a52f72ef14dc8d291b021f9076538aacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac1e346f6b981f0e111111e892c1e660b" id="r_ac1e346f6b981f0e111111e892c1e660b"><td class="memItemLeft" align="right" valign="top"><a id="ac1e346f6b981f0e111111e892c1e660b" name="ac1e346f6b981f0e111111e892c1e660b"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>fillDiagonal</b> ()</td></tr>
+<tr class="memitem:ac1e346f6b981f0e111111e892c1e660b" id="r_ac1e346f6b981f0e111111e892c1e660b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1e346f6b981f0e111111e892c1e660b">fillDiagonal</a> ()</td></tr>
+<tr class="memdesc:ac1e346f6b981f0e111111e892c1e660b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypełnia macierz przekątną.  <br /></td></tr>
 <tr class="separator:ac1e346f6b981f0e111111e892c1e660b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfb40b3893ecc4a068cb6808d4ff0586" id="r_abfb40b3893ecc4a068cb6808d4ff0586"><td class="memItemLeft" align="right" valign="top"><a id="abfb40b3893ecc4a068cb6808d4ff0586" name="abfb40b3893ecc4a068cb6808d4ff0586"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>fillUnderDiagonal</b> ()</td></tr>
+<tr class="memitem:abfb40b3893ecc4a068cb6808d4ff0586" id="r_abfb40b3893ecc4a068cb6808d4ff0586"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfb40b3893ecc4a068cb6808d4ff0586">fillUnderDiagonal</a> ()</td></tr>
+<tr class="memdesc:abfb40b3893ecc4a068cb6808d4ff0586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypełnia macierz poniżej przekątnej.  <br /></td></tr>
 <tr class="separator:abfb40b3893ecc4a068cb6808d4ff0586"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a819130cf862e8b4ee08f1e3b6f3328d4" id="r_a819130cf862e8b4ee08f1e3b6f3328d4"><td class="memItemLeft" align="right" valign="top"><a id="a819130cf862e8b4ee08f1e3b6f3328d4" name="a819130cf862e8b4ee08f1e3b6f3328d4"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>fillOverDiagonal</b> ()</td></tr>
+<tr class="memitem:a819130cf862e8b4ee08f1e3b6f3328d4" id="r_a819130cf862e8b4ee08f1e3b6f3328d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a819130cf862e8b4ee08f1e3b6f3328d4">fillOverDiagonal</a> ()</td></tr>
+<tr class="memdesc:a819130cf862e8b4ee08f1e3b6f3328d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypełnia macierz powyżej przekątnej.  <br /></td></tr>
 <tr class="separator:a819130cf862e8b4ee08f1e3b6f3328d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a385284785cb57e23a093b126f4415475" id="r_a385284785cb57e23a093b126f4415475"><td class="memItemLeft" align="right" valign="top"><a id="a385284785cb57e23a093b126f4415475" name="a385284785cb57e23a093b126f4415475"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>fillChessboardStyle</b> ()</td></tr>
+<tr class="memitem:a385284785cb57e23a093b126f4415475" id="r_a385284785cb57e23a093b126f4415475"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a385284785cb57e23a093b126f4415475">fillChessboardStyle</a> ()</td></tr>
+<tr class="memdesc:a385284785cb57e23a093b126f4415475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypełnia macierz w stylu szachownicy.  <br /></td></tr>
 <tr class="separator:a385284785cb57e23a093b126f4415475"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1d63f04ac246f9430b3e0f3ba1b4348b" id="r_a1d63f04ac246f9430b3e0f3ba1b4348b"><td class="memItemLeft" align="right" valign="top"><a id="a1d63f04ac246f9430b3e0f3ba1b4348b" name="a1d63f04ac246f9430b3e0f3ba1b4348b"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memitem:a1d63f04ac246f9430b3e0f3ba1b4348b" id="r_a1d63f04ac246f9430b3e0f3ba1b4348b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d63f04ac246f9430b3e0f3ba1b4348b">operator+</a> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memdesc:a1d63f04ac246f9430b3e0f3ba1b4348b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje dwie macierze.  <br /></td></tr>
 <tr class="separator:a1d63f04ac246f9430b3e0f3ba1b4348b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3592685bb5675032847d3ecfe4231b33" id="r_a3592685bb5675032847d3ecfe4231b33"><td class="memItemLeft" align="right" valign="top"><a id="a3592685bb5675032847d3ecfe4231b33" name="a3592685bb5675032847d3ecfe4231b33"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memitem:a3592685bb5675032847d3ecfe4231b33" id="r_a3592685bb5675032847d3ecfe4231b33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3592685bb5675032847d3ecfe4231b33">operator*</a> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memdesc:a3592685bb5675032847d3ecfe4231b33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mnoży dwie macierze.  <br /></td></tr>
 <tr class="separator:a3592685bb5675032847d3ecfe4231b33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b27d6381af22f5f5690c970ac744918" id="r_a9b27d6381af22f5f5690c970ac744918"><td class="memItemLeft" align="right" valign="top"><a id="a9b27d6381af22f5f5690c970ac744918" name="a9b27d6381af22f5f5690c970ac744918"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (int scalar) const</td></tr>
+<tr class="memitem:a9b27d6381af22f5f5690c970ac744918" id="r_a9b27d6381af22f5f5690c970ac744918"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b27d6381af22f5f5690c970ac744918">operator+</a> (int scalar) const</td></tr>
+<tr class="memdesc:a9b27d6381af22f5f5690c970ac744918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje skalara do macierzy.  <br /></td></tr>
 <tr class="separator:a9b27d6381af22f5f5690c970ac744918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c68a9d280c2919b846500b423df9a37" id="r_a9c68a9d280c2919b846500b423df9a37"><td class="memItemLeft" align="right" valign="top"><a id="a9c68a9d280c2919b846500b423df9a37" name="a9c68a9d280c2919b846500b423df9a37"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (int scalar) const</td></tr>
+<tr class="memitem:a9c68a9d280c2919b846500b423df9a37" id="r_a9c68a9d280c2919b846500b423df9a37"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c68a9d280c2919b846500b423df9a37">operator*</a> (int scalar) const</td></tr>
+<tr class="memdesc:a9c68a9d280c2919b846500b423df9a37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mnoży macierz przez skalar.  <br /></td></tr>
 <tr class="separator:a9c68a9d280c2919b846500b423df9a37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a819e9f1d93cf3e205c078c7c307e335a" id="r_a819e9f1d93cf3e205c078c7c307e335a"><td class="memItemLeft" align="right" valign="top"><a id="a819e9f1d93cf3e205c078c7c307e335a" name="a819e9f1d93cf3e205c078c7c307e335a"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (int scalar) const</td></tr>
+<tr class="memitem:a819e9f1d93cf3e205c078c7c307e335a" id="r_a819e9f1d93cf3e205c078c7c307e335a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a819e9f1d93cf3e205c078c7c307e335a">operator-</a> (int scalar) const</td></tr>
+<tr class="memdesc:a819e9f1d93cf3e205c078c7c307e335a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Odejmuje skalar od macierzy.  <br /></td></tr>
 <tr class="separator:a819e9f1d93cf3e205c078c7c307e335a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4826f11e6bc343d1aeb95a8209b1a78" id="r_af4826f11e6bc343d1aeb95a8209b1a78"><td class="memItemLeft" align="right" valign="top"><a id="af4826f11e6bc343d1aeb95a8209b1a78" name="af4826f11e6bc343d1aeb95a8209b1a78"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator++</b> (int)</td></tr>
+<tr class="memitem:af4826f11e6bc343d1aeb95a8209b1a78" id="r_af4826f11e6bc343d1aeb95a8209b1a78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4826f11e6bc343d1aeb95a8209b1a78">operator++</a> (int)</td></tr>
+<tr class="memdesc:af4826f11e6bc343d1aeb95a8209b1a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwiększa macierz o 1.  <br /></td></tr>
 <tr class="separator:af4826f11e6bc343d1aeb95a8209b1a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb07087172f95fbbc9a427180ca32cb2" id="r_adb07087172f95fbbc9a427180ca32cb2"><td class="memItemLeft" align="right" valign="top"><a id="adb07087172f95fbbc9a427180ca32cb2" name="adb07087172f95fbbc9a427180ca32cb2"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator--</b> (int)</td></tr>
+<tr class="memitem:adb07087172f95fbbc9a427180ca32cb2" id="r_adb07087172f95fbbc9a427180ca32cb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb07087172f95fbbc9a427180ca32cb2">operator--</a> (int)</td></tr>
+<tr class="memdesc:adb07087172f95fbbc9a427180ca32cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zmniejsza macierz o 1.  <br /></td></tr>
 <tr class="separator:adb07087172f95fbbc9a427180ca32cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1a7aa7c7f89060de65b52ec8ad25fd0" id="r_ae1a7aa7c7f89060de65b52ec8ad25fd0"><td class="memItemLeft" align="right" valign="top"><a id="ae1a7aa7c7f89060de65b52ec8ad25fd0" name="ae1a7aa7c7f89060de65b52ec8ad25fd0"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (int scalar)</td></tr>
+<tr class="memitem:ae1a7aa7c7f89060de65b52ec8ad25fd0" id="r_ae1a7aa7c7f89060de65b52ec8ad25fd0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1a7aa7c7f89060de65b52ec8ad25fd0">operator+=</a> (int scalar)</td></tr>
+<tr class="memdesc:ae1a7aa7c7f89060de65b52ec8ad25fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje skalar do macierzy i zwraca wynik.  <br /></td></tr>
 <tr class="separator:ae1a7aa7c7f89060de65b52ec8ad25fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01f81e4d9c3553ec6cb71f5fa3862def" id="r_a01f81e4d9c3553ec6cb71f5fa3862def"><td class="memItemLeft" align="right" valign="top"><a id="a01f81e4d9c3553ec6cb71f5fa3862def" name="a01f81e4d9c3553ec6cb71f5fa3862def"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-=</b> (int scalar)</td></tr>
+<tr class="memitem:a01f81e4d9c3553ec6cb71f5fa3862def" id="r_a01f81e4d9c3553ec6cb71f5fa3862def"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01f81e4d9c3553ec6cb71f5fa3862def">operator-=</a> (int scalar)</td></tr>
+<tr class="memdesc:a01f81e4d9c3553ec6cb71f5fa3862def"><td class="mdescLeft">&#160;</td><td class="mdescRight">Odejmuje skalar od macierzy i zwraca wynik.  <br /></td></tr>
 <tr class="separator:a01f81e4d9c3553ec6cb71f5fa3862def"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48b5c52df9325e3f7ea876ce3722be5f" id="r_a48b5c52df9325e3f7ea876ce3722be5f"><td class="memItemLeft" align="right" valign="top"><a id="a48b5c52df9325e3f7ea876ce3722be5f" name="a48b5c52df9325e3f7ea876ce3722be5f"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*=</b> (int scalar)</td></tr>
+<tr class="memitem:a48b5c52df9325e3f7ea876ce3722be5f" id="r_a48b5c52df9325e3f7ea876ce3722be5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48b5c52df9325e3f7ea876ce3722be5f">operator*=</a> (int scalar)</td></tr>
+<tr class="memdesc:a48b5c52df9325e3f7ea876ce3722be5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mnoży macierz przez skalar i zwraca wynik.  <br /></td></tr>
 <tr class="separator:a48b5c52df9325e3f7ea876ce3722be5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae355ae2152fe2445dcf3d08d8e3c7fbe" id="r_ae355ae2152fe2445dcf3d08d8e3c7fbe"><td class="memItemLeft" align="right" valign="top"><a id="ae355ae2152fe2445dcf3d08d8e3c7fbe" name="ae355ae2152fe2445dcf3d08d8e3c7fbe"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+=</b> (double)</td></tr>
+<tr class="memitem:ae355ae2152fe2445dcf3d08d8e3c7fbe" id="r_ae355ae2152fe2445dcf3d08d8e3c7fbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae355ae2152fe2445dcf3d08d8e3c7fbe">operator+=</a> (double)</td></tr>
+<tr class="memdesc:ae355ae2152fe2445dcf3d08d8e3c7fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje skalar typu double do macierzy.  <br /></td></tr>
 <tr class="separator:ae355ae2152fe2445dcf3d08d8e3c7fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4f3d14634be2d4a81eb3b898109ee2d" id="r_af4f3d14634be2d4a81eb3b898109ee2d"><td class="memItemLeft" align="right" valign="top"><a id="af4f3d14634be2d4a81eb3b898109ee2d" name="af4f3d14634be2d4a81eb3b898109ee2d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memitem:af4f3d14634be2d4a81eb3b898109ee2d" id="r_af4f3d14634be2d4a81eb3b898109ee2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4f3d14634be2d4a81eb3b898109ee2d">operator==</a> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memdesc:af4f3d14634be2d4a81eb3b898109ee2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Porównuje dwie macierze pod kątem równości.  <br /></td></tr>
 <tr class="separator:af4f3d14634be2d4a81eb3b898109ee2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e7635561c3cf3486b8a9487737184c4" id="r_a9e7635561c3cf3486b8a9487737184c4"><td class="memItemLeft" align="right" valign="top"><a id="a9e7635561c3cf3486b8a9487737184c4" name="a9e7635561c3cf3486b8a9487737184c4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memitem:a9e7635561c3cf3486b8a9487737184c4" id="r_a9e7635561c3cf3486b8a9487737184c4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e7635561c3cf3486b8a9487737184c4">operator&gt;</a> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memdesc:a9e7635561c3cf3486b8a9487737184c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Porównuje dwie macierze pod kątem większości.  <br /></td></tr>
 <tr class="separator:a9e7635561c3cf3486b8a9487737184c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6e4d2b1e70096f986d9f02ea0b83821" id="r_aa6e4d2b1e70096f986d9f02ea0b83821"><td class="memItemLeft" align="right" valign="top"><a id="aa6e4d2b1e70096f986d9f02ea0b83821" name="aa6e4d2b1e70096f986d9f02ea0b83821"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memitem:aa6e4d2b1e70096f986d9f02ea0b83821" id="r_aa6e4d2b1e70096f986d9f02ea0b83821"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6e4d2b1e70096f986d9f02ea0b83821">operator&lt;</a> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memdesc:aa6e4d2b1e70096f986d9f02ea0b83821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Porównuje dwie macierze pod kątem mniejszości.  <br /></td></tr>
 <tr class="separator:aa6e4d2b1e70096f986d9f02ea0b83821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af34c823e4a8225a6fc4561b004d8973b" id="r_af34c823e4a8225a6fc4561b004d8973b"><td class="memItemLeft" align="right" valign="top"><a id="af34c823e4a8225a6fc4561b004d8973b" name="af34c823e4a8225a6fc4561b004d8973b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memitem:af34c823e4a8225a6fc4561b004d8973b" id="r_af34c823e4a8225a6fc4561b004d8973b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af34c823e4a8225a6fc4561b004d8973b">operator!=</a> (const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;other) const</td></tr>
+<tr class="memdesc:af34c823e4a8225a6fc4561b004d8973b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Porównuje dwie macierze pod kątem nierówności.  <br /></td></tr>
 <tr class="separator:af34c823e4a8225a6fc4561b004d8973b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a644ae81c149a735269af082c4360ac7c" id="r_a644ae81c149a735269af082c4360ac7c"><td class="memItemLeft" align="right" valign="top"><a id="a644ae81c149a735269af082c4360ac7c" name="a644ae81c149a735269af082c4360ac7c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>displayFull</b> () const</td></tr>
+<tr class="memdesc:a644ae81c149a735269af082c4360ac7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyświetla pełną macierz. <br /></td></tr>
 <tr class="separator:a644ae81c149a735269af082c4360ac7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a084c898db320f5152524c506d3d04258" id="r_a084c898db320f5152524c506d3d04258"><td class="memItemLeft" align="right" valign="top"><a id="a084c898db320f5152524c506d3d04258" name="a084c898db320f5152524c506d3d04258"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>displayTruncated</b> () const</td></tr>
+<tr class="memdesc:a084c898db320f5152524c506d3d04258"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wyświetla skróconą wersję macierzy. <br /></td></tr>
 <tr class="separator:a084c898db320f5152524c506d3d04258"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:abf2f9f50746eef485a34b1c7792d14d8" id="r_abf2f9f50746eef485a34b1c7792d14d8"><td class="memItemLeft" align="right" valign="top"><a id="abf2f9f50746eef485a34b1c7792d14d8" name="abf2f9f50746eef485a34b1c7792d14d8"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (int scalar, const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;matrix)</td></tr>
+<tr class="memitem:abf2f9f50746eef485a34b1c7792d14d8" id="r_abf2f9f50746eef485a34b1c7792d14d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf2f9f50746eef485a34b1c7792d14d8">operator+</a> (int scalar, const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;matrix)</td></tr>
+<tr class="memdesc:abf2f9f50746eef485a34b1c7792d14d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje skalar do macierzy.  <br /></td></tr>
 <tr class="separator:abf2f9f50746eef485a34b1c7792d14d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7de2c3bd4d5f3ee3e48077a866e7efbb" id="r_a7de2c3bd4d5f3ee3e48077a866e7efbb"><td class="memItemLeft" align="right" valign="top"><a id="a7de2c3bd4d5f3ee3e48077a866e7efbb" name="a7de2c3bd4d5f3ee3e48077a866e7efbb"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (int scalar, const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;matrix)</td></tr>
+<tr class="memitem:a7de2c3bd4d5f3ee3e48077a866e7efbb" id="r_a7de2c3bd4d5f3ee3e48077a866e7efbb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7de2c3bd4d5f3ee3e48077a866e7efbb">operator*</a> (int scalar, const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;matrix)</td></tr>
+<tr class="memdesc:a7de2c3bd4d5f3ee3e48077a866e7efbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mnoży macierz przez skalar.  <br /></td></tr>
 <tr class="separator:a7de2c3bd4d5f3ee3e48077a866e7efbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fc83906b1b43899bb796290320882c0" id="r_a1fc83906b1b43899bb796290320882c0"><td class="memItemLeft" align="right" valign="top"><a id="a1fc83906b1b43899bb796290320882c0" name="a1fc83906b1b43899bb796290320882c0"></a>
-<a class="el" href="classSquareMatrix.html">SquareMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (int scalar, const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;matrix)</td></tr>
+<tr class="memitem:a1fc83906b1b43899bb796290320882c0" id="r_a1fc83906b1b43899bb796290320882c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSquareMatrix.html">SquareMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc83906b1b43899bb796290320882c0">operator-</a> (int scalar, const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;matrix)</td></tr>
+<tr class="memdesc:a1fc83906b1b43899bb796290320882c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Odejmuje macierz od skalara.  <br /></td></tr>
 <tr class="separator:a1fc83906b1b43899bb796290320882c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3e7217da4447e0428317ce8fc5dc731" id="r_ae3e7217da4447e0428317ce8fc5dc731"><td class="memItemLeft" align="right" valign="top"><a id="ae3e7217da4447e0428317ce8fc5dc731" name="ae3e7217da4447e0428317ce8fc5dc731"></a>
-std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;matrix)</td></tr>
+<tr class="memitem:ae3e7217da4447e0428317ce8fc5dc731" id="r_ae3e7217da4447e0428317ce8fc5dc731"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3e7217da4447e0428317ce8fc5dc731">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;matrix)</td></tr>
+<tr class="memdesc:ae3e7217da4447e0428317ce8fc5dc731"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypisuje macierz na standardowe wyjście.  <br /></td></tr>
 <tr class="separator:ae3e7217da4447e0428317ce8fc5dc731"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Marcin Dudek </dd>
-<dd>
-Mateusz Basiaga (<a href="#" onclick="location.href='mai'+'lto:'+'bas'+'ma'+'teu'+'sz'+'@wp'+'.p'+'l'; return false;">basma<span class="obfuscator">.nosp@m.</span>teus<span class="obfuscator">.nosp@m.</span>z@wp.<span class="obfuscator">.nosp@m.</span>pl</a>) </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2024-11-27</dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa95003d94d228049f29270eb2b883473" name="aa95003d94d228049f29270eb2b883473"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa95003d94d228049f29270eb2b883473">&#9670;&#160;</a></span>getSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int SquareMatrix::getSize </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<div class="textblock"><p>Klasa reprezentująca macierz kwadratową. </p>
 <dl class="section author"><dt>Author</dt><dd>Marcin Dudek </dd>
 <dd>
 Mateusz Basiaga (<a href="#" onclick="location.href='mai'+'lto:'+'bas'+'ma'+'teu'+'sz'+'@wp'+'.p'+'l'; return false;">basma<span class="obfuscator">.nosp@m.</span>teus<span class="obfuscator">.nosp@m.</span>z@wp.<span class="obfuscator">.nosp@m.</span>pl</a>) </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2024-11-27</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9f4226986d202e34dba99f011ad79b69" name="a9f4226986d202e34dba99f011ad79b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f4226986d202e34dba99f011ad79b69">&#9670;&#160;</a></span>SquareMatrix() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SquareMatrix::SquareMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konstruktor z parametrem rozmiaru macierzy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Rozmiar macierzy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afd503b575776fb8753b30cdd3a08f648" name="afd503b575776fb8753b30cdd3a08f648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd503b575776fb8753b30cdd3a08f648">&#9670;&#160;</a></span>SquareMatrix() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SquareMatrix::SquareMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *</td>          <td class="paramname"><span class="paramname"><em>rowData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor z parametrem danych wiersza. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Rozmiar macierzy. </td></tr>
+    <tr><td class="paramname">rowData</td><td>Dane wiersza do zainicjowania macierzy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad0f9850c3b08b9aa5ea67fc6762ee284" name="ad0f9850c3b08b9aa5ea67fc6762ee284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0f9850c3b08b9aa5ea67fc6762ee284">&#9670;&#160;</a></span>SquareMatrix() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SquareMatrix::SquareMatrix </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Konstruktor kopiujący. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Inna macierz, która ma być skopiowana. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a409fdd62e0b5403b928122ea092a9be2" name="a409fdd62e0b5403b928122ea092a9be2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a409fdd62e0b5403b928122ea092a9be2">&#9670;&#160;</a></span>allocate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::allocate </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Przydziela pamięć dla macierzy o podanym rozmiarze. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Rozmiar macierzy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy. </dd></dl>
+
+</div>
+</div>
+<a id="a385284785cb57e23a093b126f4415475" name="a385284785cb57e23a093b126f4415475"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a385284785cb57e23a093b126f4415475">&#9670;&#160;</a></span>fillChessboardStyle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::fillChessboardStyle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wypełnia macierz w stylu szachownicy. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po wypełnieniu w stylu szachownicy. </dd></dl>
+
+</div>
+</div>
+<a id="ac1e346f6b981f0e111111e892c1e660b" name="ac1e346f6b981f0e111111e892c1e660b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e346f6b981f0e111111e892c1e660b">&#9670;&#160;</a></span>fillDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::fillDiagonal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wypełnia macierz przekątną. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po wypełnieniu przekątnej. </dd></dl>
+
+</div>
+</div>
+<a id="a819130cf862e8b4ee08f1e3b6f3328d4" name="a819130cf862e8b4ee08f1e3b6f3328d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a819130cf862e8b4ee08f1e3b6f3328d4">&#9670;&#160;</a></span>fillOverDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::fillOverDiagonal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wypełnia macierz powyżej przekątnej. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po wypełnieniu powyżej przekątnej. </dd></dl>
+
+</div>
+</div>
+<a id="abfb40b3893ecc4a068cb6808d4ff0586" name="abfb40b3893ecc4a068cb6808d4ff0586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb40b3893ecc4a068cb6808d4ff0586">&#9670;&#160;</a></span>fillUnderDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::fillUnderDiagonal </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wypełnia macierz poniżej przekątnej. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po wypełnieniu poniżej przekątnej. </dd></dl>
+
+</div>
+</div>
+<a id="a90ede9c8ec5c921e75eaa47d42111d78" name="a90ede9c8ec5c921e75eaa47d42111d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ede9c8ec5c921e75eaa47d42111d78">&#9670;&#160;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SquareMatrix::get </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwraca wartość z elementu macierzy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Numer wiersza. </td></tr>
+    <tr><td class="paramname">col</td><td>Numer kolumny. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Wartość elementu macierzy. </dd></dl>
+
+</div>
+</div>
+<a id="af132f5df4c8b4e24c5bf4985086f082e" name="af132f5df4c8b4e24c5bf4985086f082e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af132f5df4c8b4e24c5bf4985086f082e">&#9670;&#160;</a></span>insert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::insert </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wstawia wartość do elementu macierzy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Numer wiersza. </td></tr>
+    <tr><td class="paramname">col</td><td>Numer kolumny. </td></tr>
+    <tr><td class="paramname">value</td><td>Wartość do wstawienia. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy. </dd></dl>
+
+</div>
+</div>
+<a id="a445f2c5d4b76c7406535f44a1d69e541" name="a445f2c5d4b76c7406535f44a1d69e541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a445f2c5d4b76c7406535f44a1d69e541">&#9670;&#160;</a></span>insertColumn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::insertColumn </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>col</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *</td>          <td class="paramname"><span class="paramname"><em>columnData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wstawia dane do kolumny. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">col</td><td>Numer kolumny. </td></tr>
+    <tr><td class="paramname">columnData</td><td>Dane do wstawienia w kolumnie. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po wstawieniu danych. </dd></dl>
+
+</div>
+</div>
+<a id="a4e2d75cf6c74d4f038b3c8a328ca47cb" name="a4e2d75cf6c74d4f038b3c8a328ca47cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e2d75cf6c74d4f038b3c8a328ca47cb">&#9670;&#160;</a></span>insertDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::insertDiagonal </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *</td>          <td class="paramname"><span class="paramname"><em>diagonalData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wstawia dane na przekątną o określonym przesunięciu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">offset</td><td>Przesunięcie dla przekątnej. </td></tr>
+    <tr><td class="paramname">diagonalData</td><td>Dane do wstawienia na przekątną. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po wstawieniu danych. </dd></dl>
+
+</div>
+</div>
+<a id="ac002c52c3680840e77739a3669e9a331" name="ac002c52c3680840e77739a3669e9a331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac002c52c3680840e77739a3669e9a331">&#9670;&#160;</a></span>insertMainDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::insertMainDiagonal </td>
+          <td>(</td>
+          <td class="paramtype">const int *</td>          <td class="paramname"><span class="paramname"><em>mainDiagonalData</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wstawia dane na główną przekątną macierzy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mainDiagonalData</td><td>Dane do wstawienia na główną przekątną. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po wstawieniu danych. </dd></dl>
+
+</div>
+</div>
+<a id="a52f72ef14dc8d291b021f9076538aacb" name="a52f72ef14dc8d291b021f9076538aacb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52f72ef14dc8d291b021f9076538aacb">&#9670;&#160;</a></span>insertRow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::insertRow </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *</td>          <td class="paramname"><span class="paramname"><em>rowData</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wstawia dane do wiersza. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td>Numer wiersza. </td></tr>
+    <tr><td class="paramname">rowData</td><td>Dane do wstawienia w wierszu. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po wstawieniu danych. </dd></dl>
+
+</div>
+</div>
+<a id="af34c823e4a8225a6fc4561b004d8973b" name="af34c823e4a8225a6fc4561b004d8973b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af34c823e4a8225a6fc4561b004d8973b">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SquareMatrix::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Porównuje dwie macierze pod kątem nierówności. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Inna macierz do porównania. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Prawda, jeśli macierze są różne, fałsz w przeciwnym przypadku. </dd></dl>
+
+</div>
+</div>
+<a id="a3592685bb5675032847d3ecfe4231b33" name="a3592685bb5675032847d3ecfe4231b33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3592685bb5675032847d3ecfe4231b33">&#9670;&#160;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mnoży dwie macierze. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Inna macierz do pomnożenia. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nowa macierz po mnożeniu. </dd></dl>
+
+</div>
+</div>
+<a id="a9c68a9d280c2919b846500b423df9a37" name="a9c68a9d280c2919b846500b423df9a37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c68a9d280c2919b846500b423df9a37">&#9670;&#160;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator* </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mnoży macierz przez skalar. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar do mnożenia. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nowa macierz po mnożeniu przez skalar. </dd></dl>
+
+</div>
+</div>
+<a id="a48b5c52df9325e3f7ea876ce3722be5f" name="a48b5c52df9325e3f7ea876ce3722be5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48b5c52df9325e3f7ea876ce3722be5f">&#9670;&#160;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mnoży macierz przez skalar i zwraca wynik. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar do mnożenia. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po mnożeniu przez skalar. </dd></dl>
+
+</div>
+</div>
+<a id="a1d63f04ac246f9430b3e0f3ba1b4348b" name="a1d63f04ac246f9430b3e0f3ba1b4348b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d63f04ac246f9430b3e0f3ba1b4348b">&#9670;&#160;</a></span>operator+() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dodaje dwie macierze. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Inna macierz do dodania. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nowa macierz po dodaniu. </dd></dl>
+
+</div>
+</div>
+<a id="a9b27d6381af22f5f5690c970ac744918" name="a9b27d6381af22f5f5690c970ac744918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b27d6381af22f5f5690c970ac744918">&#9670;&#160;</a></span>operator+() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dodaje skalara do macierzy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar do dodania. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nowa macierz po dodaniu skalara. </dd></dl>
+
+</div>
+</div>
+<a id="af4826f11e6bc343d1aeb95a8209b1a78" name="af4826f11e6bc343d1aeb95a8209b1a78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4826f11e6bc343d1aeb95a8209b1a78">&#9670;&#160;</a></span>operator++()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator++ </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zwiększa macierz o 1. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po inkrementacji. </dd></dl>
+
+</div>
+</div>
+<a id="ae355ae2152fe2445dcf3d08d8e3c7fbe" name="ae355ae2152fe2445dcf3d08d8e3c7fbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae355ae2152fe2445dcf3d08d8e3c7fbe">&#9670;&#160;</a></span>operator+=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dodaje skalar typu double do macierzy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar typu double do dodania. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po dodaniu skalara. </dd></dl>
+
+</div>
+</div>
+<a id="ae1a7aa7c7f89060de65b52ec8ad25fd0" name="ae1a7aa7c7f89060de65b52ec8ad25fd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1a7aa7c7f89060de65b52ec8ad25fd0">&#9670;&#160;</a></span>operator+=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dodaje skalar do macierzy i zwraca wynik. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar do dodania. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po dodaniu skalara. </dd></dl>
+
+</div>
+</div>
+<a id="a819e9f1d93cf3e205c078c7c307e335a" name="a819e9f1d93cf3e205c078c7c307e335a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a819e9f1d93cf3e205c078c7c307e335a">&#9670;&#160;</a></span>operator-()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator- </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Odejmuje skalar od macierzy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar do odjęcia. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nowa macierz po odjęciu skalara. </dd></dl>
+
+</div>
+</div>
+<a id="adb07087172f95fbbc9a427180ca32cb2" name="adb07087172f95fbbc9a427180ca32cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb07087172f95fbbc9a427180ca32cb2">&#9670;&#160;</a></span>operator--()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator-- </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zmniejsza macierz o 1. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po dekrementacji. </dd></dl>
+
+</div>
+</div>
+<a id="a01f81e4d9c3553ec6cb71f5fa3862def" name="a01f81e4d9c3553ec6cb71f5fa3862def"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01f81e4d9c3553ec6cb71f5fa3862def">&#9670;&#160;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Odejmuje skalar od macierzy i zwraca wynik. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar do odjęcia. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po odjęciu skalara. </dd></dl>
+
+</div>
+</div>
+<a id="aa6e4d2b1e70096f986d9f02ea0b83821" name="aa6e4d2b1e70096f986d9f02ea0b83821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6e4d2b1e70096f986d9f02ea0b83821">&#9670;&#160;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SquareMatrix::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Porównuje dwie macierze pod kątem mniejszości. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Inna macierz do porównania. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Prawda, jeśli pierwsza macierz jest mniejsza od drugiej. </dd></dl>
+
+</div>
+</div>
+<a id="af4f3d14634be2d4a81eb3b898109ee2d" name="af4f3d14634be2d4a81eb3b898109ee2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4f3d14634be2d4a81eb3b898109ee2d">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SquareMatrix::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Porównuje dwie macierze pod kątem równości. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Inna macierz do porównania. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Prawda, jeśli macierze są równe, fałsz w przeciwnym przypadku. </dd></dl>
+
+</div>
+</div>
+<a id="a9e7635561c3cf3486b8a9487737184c4" name="a9e7635561c3cf3486b8a9487737184c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e7635561c3cf3486b8a9487737184c4">&#9670;&#160;</a></span>operator&gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SquareMatrix::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Porównuje dwie macierze pod kątem większości. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Inna macierz do porównania. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Prawda, jeśli pierwsza macierz jest większa od drugiej. </dd></dl>
+
+</div>
+</div>
+<a id="a639e774bb16cfdbe638656198c22f52b" name="a639e774bb16cfdbe638656198c22f52b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639e774bb16cfdbe638656198c22f52b">&#9670;&#160;</a></span>randomize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::randomize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Losowo wypełnia macierz. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po losowym wypełnieniu. </dd></dl>
+
+</div>
+</div>
+<a id="a01c7c00ef057b503740a171d243cebca" name="a01c7c00ef057b503740a171d243cebca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c7c00ef057b503740a171d243cebca">&#9670;&#160;</a></span>randomize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::randomize </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>count</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Losowo wypełnia macierz określoną liczbą losowych elementów. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Liczba losowych elementów. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po losowym wypełnieniu. </dd></dl>
+
+</div>
+</div>
+<a id="a6959080dbfeebf4c5b6430e3231a1e93" name="a6959080dbfeebf4c5b6430e3231a1e93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6959080dbfeebf4c5b6430e3231a1e93">&#9670;&#160;</a></span>transpose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp; SquareMatrix::transpose </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transponuje macierz. </p>
+<dl class="section return"><dt>Returns</dt><dd>Referencja do obiektu macierzy po transpozycji. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a7de2c3bd4d5f3ee3e48077a866e7efbb" name="a7de2c3bd4d5f3ee3e48077a866e7efbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7de2c3bd4d5f3ee3e48077a866e7efbb">&#9670;&#160;</a></span>operator*</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> operator* </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mnoży macierz przez skalar. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar do mnożenia. </td></tr>
+    <tr><td class="paramname">matrix</td><td>Macierz do mnożenia przez skalar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nowa macierz po mnożeniu przez skalar. </dd></dl>
+
+</div>
+</div>
+<a id="abf2f9f50746eef485a34b1c7792d14d8" name="abf2f9f50746eef485a34b1c7792d14d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf2f9f50746eef485a34b1c7792d14d8">&#9670;&#160;</a></span>operator+</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> operator+ </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dodaje skalar do macierzy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar do dodania. </td></tr>
+    <tr><td class="paramname">matrix</td><td>Macierz do dodania skalara. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nowa macierz po dodaniu skalara. </dd></dl>
+
+</div>
+</div>
+<a id="a1fc83906b1b43899bb796290320882c0" name="a1fc83906b1b43899bb796290320882c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fc83906b1b43899bb796290320882c0">&#9670;&#160;</a></span>operator-</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSquareMatrix.html">SquareMatrix</a> operator- </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>scalar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Odejmuje macierz od skalara. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Skalar, od którego odejmujemy macierz. </td></tr>
+    <tr><td class="paramname">matrix</td><td>Macierz do odjęcia. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Nowa macierz po odjęciu macierzy od skalara. </dd></dl>
+
+</div>
+</div>
+<a id="ae3e7217da4447e0428317ce8fc5dc731" name="ae3e7217da4447e0428317ce8fc5dc731"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3e7217da4447e0428317ce8fc5dc731">&#9670;&#160;</a></span>operator&lt;&lt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream &amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;</td>          <td class="paramname"><span class="paramname"><em>os</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classSquareMatrix.html">SquareMatrix</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wypisuje macierz na standardowe wyjście. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>Strumień wyjściowy. </td></tr>
+    <tr><td class="paramname">matrix</td><td>Macierz do wypisania. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Strumień wyjściowy. </dd></dl>
 
 </div>
 </div>
